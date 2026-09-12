@@ -7,12 +7,10 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
   const [activeTab, setActiveTab] = useState('Home');
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Exactly clean, essential nav items
   const navLinks = [
     { name: 'Home', href: '#home', label: { en: 'Home', ta: 'முகப்பு' } },
     { name: 'About', href: '#about', label: { en: 'About Us', ta: 'அறிமுகம்' } },
-    { name: 'Highlights', href: '#highlights', label: { en: 'Highlights', ta: 'அம்சங்கள்' } },
-    { name: 'Faculty', href: '#faculty', label: { en: 'Teachers', ta: 'ஆசிரியர்கள்' } },
+    { name: 'Highlights', href: '#highlights', label: { en: 'Highlights', ta: 'சிறப்புகள்' } },
     { name: 'Courses', href: '#courses', label: { en: 'Courses', ta: 'பாடங்கள்' } },
     { name: 'Branches', href: '#branches', label: { en: 'Branches', ta: 'கிளைகள்' } },
     { name: 'Gallery', href: '#gallery', label: { en: 'Gallery', ta: 'படங்கள்' } },
@@ -83,20 +81,20 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '8px 20px',
-        gap: '14px'
+        padding: '8px 16px',
+        gap: '12px'
       }}>
         
         {/* Brand Logo & Name */}
         <a href="#home" style={{ textDecoration: 'none', flexShrink: 0 }}>
-          <Logo size={42} showText={true} />
+          <Logo size={40} showText={true} />
         </a>
 
-        {/* Center: Simplified Clean Nav Links (Single line with white-space nowrap) */}
+        {/* Center: Clean Nav Links */}
         <nav style={{
           display: 'none',
           alignItems: 'center',
-          gap: 'clamp(6px, 1.1vw, 16px)',
+          gap: 'clamp(6px, 1.2vw, 16px)',
           flexWrap: 'nowrap'
         }} className="desktop-clean-nav">
           {navLinks.map((link) => {
@@ -111,7 +109,7 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
                   fontWeight: 700,
                   color: isActive ? '#0056b3' : '#334155',
                   textDecoration: 'none',
-                  padding: '5px 2px',
+                  padding: '5px 4px',
                   position: 'relative',
                   transition: 'all 0.2s ease',
                   borderBottom: isActive ? '2.5px solid #0056b3' : '2.5px solid transparent',
@@ -174,31 +172,31 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
             </button>
           </div>
 
-          {/* Apply Now Pill Button (Desktop only, mobile has sticky bottom bar) */}
+          {/* Apply Now Pill Button */}
           <button
             onClick={onOpenAdmission}
             className="desktop-apply-btn"
             style={{
               background: '#0052cc',
               color: '#ffffff',
-              padding: '8px 16px',
+              padding: '7px 14px',
               borderRadius: '999px',
-              fontSize: '0.84rem',
+              fontSize: '0.82rem',
               fontWeight: 800,
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
+              gap: '5px',
               boxShadow: '0 4px 10px rgba(0, 82, 204, 0.25)',
               border: 'none',
               cursor: 'pointer',
               whiteSpace: 'nowrap'
             }}
           >
-            <Sparkles size={14} style={{ color: '#fbbf24' }} />
+            <Sparkles size={13} style={{ color: '#fbbf24' }} />
             <span>{lang === 'ta' ? 'சேர்க்கை' : 'Apply Now'}</span>
           </button>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             style={{
@@ -223,7 +221,7 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
 
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile/Tablet Menu Drawer */}
       {mobileOpen && (
         <div style={{
           background: '#ffffff',
@@ -231,7 +229,7 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
           padding: '16px 20px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '12px',
+          gap: '10px',
           boxShadow: '0 10px 20px rgba(0,0,0,0.06)'
         }}>
           {navLinks.map((link) => (
@@ -246,7 +244,7 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
                 fontSize: '1rem',
                 fontWeight: 700,
                 color: activeTab === link.name ? '#0056b3' : '#1e293b',
-                padding: '6px 0',
+                padding: '8px 0',
                 textDecoration: 'none',
                 borderBottom: '1px solid #f1f5f9'
               }}
@@ -272,7 +270,7 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
               justifyContent: 'center',
               gap: '6px',
               border: 'none',
-              marginTop: '4px'
+              marginTop: '6px'
             }}
           >
             <Sparkles size={16} style={{ color: '#fbbf24' }} />
@@ -282,7 +280,7 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
       )}
 
       <style>{`
-        @media (min-width: 860px) {
+        @media (min-width: 1040px) {
           .desktop-clean-nav {
             display: flex !important;
           }
@@ -293,9 +291,15 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
             display: none !important;
           }
         }
-        @media (max-width: 859px) {
+        @media (max-width: 1039px) {
+          .desktop-clean-nav {
+            display: none !important;
+          }
           .desktop-apply-btn {
             display: none !important;
+          }
+          .mobile-clean-menu-btn {
+            display: flex !important;
           }
         }
         @media (max-width: 600px) {
