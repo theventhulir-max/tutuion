@@ -264,8 +264,8 @@ export default function Hero({ lang, onOpenAdmission }) {
           padding: 38px 24px;
         }
         .hero-left-content {
-          max-width: 680px;
-          width: 60%;
+          max-width: 740px;
+          width: 62%;
         }
         .hero-tagline-en {
           font-size: 1.85rem;
@@ -276,7 +276,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           letter-spacing: -0.01em;
         }
         .hero-main-h1 {
-          font-size: clamp(2.2rem, 3.2vw, 2.95rem);
+          font-size: clamp(2.45rem, 3.6vw, 3.25rem);
           line-height: 1.18;
         }
         .hero-h1-line-1, .hero-h1-line-2 {
@@ -400,8 +400,8 @@ export default function Hero({ lang, onOpenAdmission }) {
             margin: 0 auto 6px auto !important;
           }
           .hero-main-h1 {
-            font-size: clamp(1.2rem, 5.0vw, 1.85rem) !important;
-            line-height: 1.22 !important;
+            font-size: clamp(1.32rem, 5.6vw, 2.05rem) !important;
+            line-height: 1.24 !important;
             margin-bottom: 24px !important;
             text-align: center !important;
             width: 100% !important;
@@ -503,7 +503,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             font-size: 1.1rem !important;
           }
           .hero-main-h1 {
-            font-size: clamp(1.08rem, 4.8vw, 1.45rem) !important;
+            font-size: clamp(1.20rem, 5.3vw, 1.65rem) !important;
             margin-bottom: 22px !important;
           }
           .hero-mid-left-box {
