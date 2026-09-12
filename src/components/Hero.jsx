@@ -49,19 +49,25 @@ export default function Hero({ lang, onOpenAdmission }) {
             }}>
               {lang === 'ta' ? (
                 <>
-                  <span className="hero-h1-line-1" style={{ display: 'block', whiteSpace: 'nowrap' }}>
-                    மாணவர்களின் <span style={{ color: '#00875a' }}>கல்வி மேன்மைக்கும்</span>
+                  <span className="hero-h1-line hero-h1-line-1" style={{ display: 'block', whiteSpace: 'nowrap' }}>
+                    மாணவர்களின்
                   </span>
-                  <span className="hero-h1-line-2" style={{ display: 'block', whiteSpace: 'nowrap' }}>
-                    100% தேர்ச்சிக்கும் முழு வழிகாட்டல்!
+                  <span className="hero-h1-line hero-h1-line-2" style={{ display: 'block', whiteSpace: 'nowrap', color: '#00875a' }}>
+                    கல்வி மேன்மைக்கும்
+                  </span>
+                  <span className="hero-h1-line hero-h1-line-3" style={{ display: 'block', whiteSpace: 'nowrap', marginTop: '4px' }}>
+                    100% தேர்ச்சிக்கும்
+                  </span>
+                  <span className="hero-h1-line hero-h1-line-4" style={{ display: 'block', whiteSpace: 'nowrap' }}>
+                    முழு வழிகாட்டல்!
                   </span>
                 </>
               ) : (
                 <>
-                  <span className="hero-h1-line-1" style={{ display: 'block', whiteSpace: 'nowrap' }}>
+                  <span className="hero-h1-line hero-h1-line-1" style={{ display: 'block', whiteSpace: 'nowrap' }}>
                     Empowering Students with
                   </span>
-                  <span className="hero-h1-line-2" style={{ display: 'block', whiteSpace: 'nowrap' }}>
+                  <span className="hero-h1-line hero-h1-line-2" style={{ display: 'block', whiteSpace: 'nowrap' }}>
                     <span style={{ color: '#00875a' }}>Academic Excellence</span> & Top Scores!
                   </span>
                 </>
@@ -279,7 +285,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           font-size: clamp(2.55rem, 3.8vw, 3.4rem);
           line-height: 1.15;
         }
-        .hero-h1-line-1, .hero-h1-line-2 {
+        .hero-h1-line, .hero-h1-line-1, .hero-h1-line-2, .hero-h1-line-3, .hero-h1-line-4 {
           white-space: nowrap !important;
           display: block !important;
         }
@@ -400,15 +406,18 @@ export default function Hero({ lang, onOpenAdmission }) {
             margin: 0 auto 6px auto !important;
           }
           .hero-main-h1 {
-            font-size: clamp(1.32rem, 5.6vw, 2.05rem) !important;
-            line-height: 1.24 !important;
-            margin-bottom: 24px !important;
+            font-size: clamp(1.65rem, 6.8vw, 2.35rem) !important;
+            font-weight: 900 !important;
+            line-height: 1.2 !important;
+            letter-spacing: -0.015em !important;
+            margin-bottom: 22px !important;
             text-align: center !important;
             width: 100% !important;
           }
-          .hero-h1-line-1, .hero-h1-line-2 {
+          .hero-h1-line, .hero-h1-line-1, .hero-h1-line-2, .hero-h1-line-3, .hero-h1-line-4 {
             white-space: nowrap !important;
             display: block !important;
+            font-weight: 900 !important;
           }
 
           /* SUBTITLE & BADGES REMAIN ON LEFT (62% width) SO RIGHT STUDENT STAYS VISIBLE */
@@ -503,8 +512,11 @@ export default function Hero({ lang, onOpenAdmission }) {
             font-size: 1.1rem !important;
           }
           .hero-main-h1 {
-            font-size: clamp(1.20rem, 5.3vw, 1.65rem) !important;
-            margin-bottom: 22px !important;
+            font-size: clamp(1.48rem, 6.4vw, 1.95rem) !important;
+            font-weight: 900 !important;
+            line-height: 1.22 !important;
+            letter-spacing: -0.015em !important;
+            margin-bottom: 20px !important;
           }
           .hero-mid-left-box {
             max-width: 62% !important;
