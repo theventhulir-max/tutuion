@@ -45,7 +45,7 @@ export default function Hero({ lang, onOpenAdmission }) {
               color: '#093f7c',
               lineHeight: 1.18,
               letterSpacing: '-0.025em',
-              margin: '0 0 12px 0'
+              margin: '0 0 20px 0'
             }}>
               {lang === 'ta' ? (
                 <>
@@ -367,7 +367,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           .hero-headline-center-box {
             width: 100% !important;
             max-width: 100% !important;
-            margin: 16px auto 14px auto !important;
+            margin: 16px auto 22px auto !important;
             text-align: center !important;
             display: flex !important;
             flex-direction: column !important;
@@ -477,7 +477,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             padding: 16px 14px 16px 14px !important;
           }
           .hero-headline-center-box {
-            margin: 14px auto 12px auto !important;
+            margin: 14px auto 20px auto !important;
           }
           .hero-tagline-en {
             font-size: 1.45rem !important;
