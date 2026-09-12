@@ -379,7 +379,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           .hero-headline-center-box {
             width: 100% !important;
             max-width: 100% !important;
-            margin: 16px auto 22px auto !important;
+            margin: 16px auto 26px auto !important;
             text-align: center !important;
             display: flex !important;
             flex-direction: column !important;
@@ -402,7 +402,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           .hero-main-h1 {
             font-size: clamp(1.2rem, 5.0vw, 1.85rem) !important;
             line-height: 1.22 !important;
-            margin-bottom: 20px !important;
+            margin-bottom: 24px !important;
             text-align: center !important;
             width: 100% !important;
           }
@@ -416,7 +416,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             max-width: 62% !important;
             width: 62% !important;
             align-self: flex-start !important;
-            margin-top: 16px !important;
+            margin-top: 24px !important;
           }
           .hero-subtitle {
             font-size: 0.86rem !important;
@@ -494,7 +494,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             padding: 16px 14px 16px 14px !important;
           }
           .hero-headline-center-box {
-            margin: 14px auto 20px auto !important;
+            margin: 14px auto 24px auto !important;
           }
           .hero-tagline-en {
             font-size: 1.45rem !important;
@@ -504,12 +504,12 @@ export default function Hero({ lang, onOpenAdmission }) {
           }
           .hero-main-h1 {
             font-size: clamp(1.08rem, 4.8vw, 1.45rem) !important;
-            margin-bottom: 18px !important;
+            margin-bottom: 22px !important;
           }
           .hero-mid-left-box {
             max-width: 62% !important;
             width: 62% !important;
-            margin-top: 14px !important;
+            margin-top: 22px !important;
           }
           .hero-subtitle {
             font-size: 0.83rem !important;
