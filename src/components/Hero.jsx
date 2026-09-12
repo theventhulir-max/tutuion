@@ -337,14 +337,14 @@ export default function Hero({ lang, onOpenAdmission }) {
             background-repeat: no-repeat;
             min-height: calc(100dvh - 65px) !important;
             height: auto !important;
-            padding: 16px 0 24px 0 !important;
+            padding: 24px 0 24px 0 !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
             box-sizing: border-box !important;
           }
           .hero-inner-container {
-            padding: 16px 16px 16px 16px !important;
+            padding: 20px 18px 18px 18px !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
@@ -357,61 +357,75 @@ export default function Hero({ lang, onOpenAdmission }) {
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
+            align-items: center !important;
+            text-align: center !important;
             height: 100% !important;
             flex: 1 !important;
           }
           
-          /* Restrict top text & badges to LEFT 62% on mobile so student on right is 100% visible */
+          /* Full Center Width for Mobile */
           .hero-title-box {
-            max-width: 62% !important;
-            margin-top: 14px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 14px auto 0 auto !important;
+            text-align: center !important;
           }
           .hero-tagline-en {
-            font-size: 1.55rem !important;
-            line-height: 1.15 !important;
-            text-align: center !important;
-            display: block !important;
-            margin: 0 auto !important;
-          }
-          .hero-tagline-ta {
-            font-size: 1.15rem !important;
+            font-size: 1.65rem !important;
             line-height: 1.2 !important;
             text-align: center !important;
             display: block !important;
-            margin: 0 auto !important;
+            margin: 0 auto 6px auto !important;
+          }
+          .hero-tagline-ta {
+            font-size: 1.25rem !important;
+            line-height: 1.25 !important;
+            text-align: center !important;
+            display: block !important;
+            margin: 0 auto 6px auto !important;
           }
           .hero-main-h1 {
-            font-size: 1.75rem !important;
-            line-height: 1.16 !important;
-            margin-bottom: 10px !important;
+            font-size: 1.85rem !important;
+            line-height: 1.22 !important;
+            margin-bottom: 12px !important;
             text-align: center !important;
+            width: 100% !important;
           }
           .hero-subtitle {
-            font-size: 0.85rem !important;
-            line-height: 1.45 !important;
-            margin-bottom: 16px !important;
+            font-size: 0.88rem !important;
+            line-height: 1.5 !important;
+            margin: 0 auto 18px auto !important;
             color: #1e293b !important;
             font-weight: 600 !important;
-            text-align: left !important;
+            text-align: center !important;
+            max-width: 95% !important;
           }
           
-          /* 2x2 grid on mobile within left 60% */
+          /* 2x2 grid on mobile centered */
           .hero-four-badges-row {
             display: grid !important;
             grid-template-columns: 1fr 1fr !important;
-            gap: 12px 10px !important;
-            max-width: 62% !important;
-            margin-bottom: 22px !important;
+            gap: 12px 12px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto 24px auto !important;
           }
           .hero-badge-col {
-            align-items: flex-start !important;
-            text-align: left !important;
+            align-items: center !important;
+            text-align: center !important;
             gap: 6px !important;
+            background: rgba(255, 255, 255, 0.75) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            padding: 10px 8px !important;
+            border-radius: 12px !important;
+            border: 1px solid rgba(226, 232, 240, 0.8) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
           }
           .hero-badge-icon {
-            width: 36px !important;
-            height: 36px !important;
-            margin: 0 !important;
+            width: 38px !important;
+            height: 38px !important;
+            margin: 0 auto !important;
           }
           .hero-badge-icon svg {
             width: 18px !important;
@@ -421,7 +435,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             font-size: 0.74rem !important;
             line-height: 1.25 !important;
             font-weight: 800 !important;
-            text-align: left !important;
+            text-align: center !important;
           }
           
           .hero-actions-container {
@@ -451,45 +465,49 @@ export default function Hero({ lang, onOpenAdmission }) {
         @media (max-width: 480px) {
           .hero-section-custom {
             min-height: calc(100dvh - 60px) !important;
-            padding: 14px 0 20px 0 !important;
+            padding: 18px 0 20px 0 !important;
           }
           .hero-inner-container {
-            padding: 16px 14px 16px 14px !important;
+            padding: 18px 14px 16px 14px !important;
           }
           .hero-title-box {
-            max-width: 62% !important;
-            margin-top: 12px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-top: 14px !important;
+            text-align: center !important;
           }
           .hero-tagline-en {
-            font-size: 1.45rem !important;
+            font-size: 1.5rem !important;
             text-align: center !important;
           }
           .hero-tagline-ta {
-            font-size: 1.05rem !important;
+            font-size: 1.15rem !important;
             text-align: center !important;
           }
           .hero-main-h1 {
-            font-size: 1.6rem !important;
+            font-size: 1.65rem !important;
             text-align: center !important;
           }
           .hero-subtitle {
             font-size: 0.82rem !important;
-            text-align: left !important;
+            text-align: center !important;
+            max-width: 100% !important;
           }
           .hero-four-badges-row {
-            max-width: 62% !important;
+            width: 100% !important;
+            max-width: 100% !important;
             gap: 10px 8px !important;
           }
           .hero-badge-col {
-            align-items: flex-start !important;
-            text-align: left !important;
+            align-items: center !important;
+            text-align: center !important;
           }
           .hero-badge-icon {
-            margin: 0 !important;
+            margin: 0 auto !important;
           }
           .hero-badge-text {
             font-size: 0.70rem !important;
-            text-align: left !important;
+            text-align: center !important;
           }
           .hero-call-btn, .hero-wa-btn {
             font-size: 0.82rem !important;
