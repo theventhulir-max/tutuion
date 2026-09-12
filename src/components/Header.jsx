@@ -26,62 +26,12 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
       boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
       borderBottom: '1px solid #eef2f6'
     }}>
-      {/* Top Blue Announcement Bar */}
-      <div style={{
-        background: 'linear-gradient(90deg, #005088 0%, #0066a4 50%, #0284c7 100%)',
-        color: '#ffffff',
-        fontSize: '0.78rem',
-        padding: '6px 0',
-        fontWeight: 600
-      }}>
-        <div className="container" style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '6px'
-        }}>
-          {/* Left Announcement Badge */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'nowrap' }}>
-            <span style={{
-              background: '#fbbf24',
-              color: '#78350f',
-              padding: '2px 8px',
-              borderRadius: '999px',
-              fontSize: '0.68rem',
-              fontWeight: 800,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '4px',
-              whiteSpace: 'nowrap'
-            }}>
-              <span>📢</span> ADMISSIONS OPEN
-            </span>
-            <span style={{ fontSize: '0.78rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} className="header-announcement-text">
-              13+ Yrs 100% Pass Record • 6th to +2 & Engg
-            </span>
-          </div>
-
-          {/* Right Phone Numbers */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.78rem' }} className="header-phone-links">
-            <a href="tel:9840052675" style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#ffffff', textDecoration: 'none', fontWeight: 700 }}>
-              <span style={{ color: '#6ee7b7' }}>📞</span>
-              <span>98400 52675</span>
-            </a>
-            <span style={{ opacity: 0.4 }}>|</span>
-            <a href="tel:8248006633" style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#ffffff', textDecoration: 'none', fontWeight: 700 }}>
-              <span>82480 06633</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navbar with Clean & Spacious Layout */}
       <div className="container" style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '8px 16px',
+        padding: '10px 16px',
         gap: '12px'
       }}>
         
@@ -300,14 +250,6 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
           }
           .mobile-clean-menu-btn {
             display: flex !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .header-phone-links {
-            display: none !important;
-          }
-          .header-announcement-text {
-            font-size: 0.70rem !important;
           }
         }
       `}</style>
