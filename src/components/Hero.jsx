@@ -43,22 +43,19 @@ export default function Hero({ lang, onOpenAdmission }) {
               fontWeight: 900,
               fontFamily: 'var(--font-heading)',
               color: '#093f7c',
-              lineHeight: 1.15,
+              lineHeight: 1.18,
               letterSpacing: '-0.025em',
               margin: '0 0 12px 0'
             }}>
               {lang === 'ta' ? (
                 <>
-                  மாணவர்களின் <span style={{ color: '#00875a' }}>கல்வி மேன்மைக்கும்</span> <br />
-                  100% தேர்ச்சிக்கும் <br />
-                  முழு வழிகாட்டல்!
+                  மாணவர்களின் <span style={{ color: '#00875a' }}>கல்வி மேன்மைக்கும்</span> <br className="hero-desktop-br" />
+                  100% தேர்ச்சிக்கும் முழு வழிகாட்டல்!
                 </>
               ) : (
                 <>
-                  Empowering Students <br />
-                  with <br />
-                  Academic <span style={{ color: '#00875a' }}>Excellence</span> & <br />
-                  Top Scores!
+                  Empowering Students with <br className="hero-desktop-br" />
+                  <span style={{ color: '#00875a' }}>Academic Excellence</span> & Top Scores!
                 </>
               )}
             </h1>
@@ -69,10 +66,10 @@ export default function Hero({ lang, onOpenAdmission }) {
           <div className="hero-mid-left-box">
             {/* Subtitle Paragraph */}
             <p className="hero-subtitle" style={{
-              color: '#334155',
+              color: '#1e293b',
               lineHeight: 1.55,
               margin: '0 0 16px 0',
-              fontWeight: 500
+              fontWeight: 700
             }}>
               {lang === 'ta'
                 ? '6 முதல் 12ம் வகுப்பு வரை (State Board & CBSE), அண்ணா பல்கலைக்கழக பொறியியல் கணிதம் (M1, M2), பாலிடெக்னிக் & டிகிரி கணிதத்திற்கான முதன்மை பயிற்சி மையம் - கொருக்குப்பேட்டை & தண்டையார்பேட்டை.'
@@ -259,8 +256,8 @@ export default function Hero({ lang, onOpenAdmission }) {
           padding: 38px 24px;
         }
         .hero-left-content {
-          max-width: 580px;
-          width: 55%;
+          max-width: 640px;
+          width: 58%;
         }
         .hero-tagline-en {
           font-size: 1.85rem;
@@ -271,12 +268,14 @@ export default function Hero({ lang, onOpenAdmission }) {
           letter-spacing: -0.01em;
         }
         .hero-main-h1 {
-          font-size: clamp(2.2rem, 3.2vw, 2.9rem);
-          line-height: 1.13;
+          font-size: clamp(2.05rem, 2.9vw, 2.75rem);
+          line-height: 1.18;
         }
         .hero-subtitle {
           font-size: 0.96rem;
           max-width: 520px;
+          font-weight: 700;
+          color: #1e293b;
         }
         
         /* 4 Badges in 1 Single Row on Desktop with Centered Icons */
@@ -403,11 +402,11 @@ export default function Hero({ lang, onOpenAdmission }) {
             align-self: flex-start !important;
           }
           .hero-subtitle {
-            font-size: 0.85rem !important;
-            line-height: 1.45 !important;
+            font-size: 0.86rem !important;
+            line-height: 1.48 !important;
             margin-bottom: 16px !important;
-            color: #1e293b !important;
-            font-weight: 600 !important;
+            color: #0f172a !important;
+            font-weight: 700 !important;
             text-align: left !important;
           }
           
@@ -494,8 +493,11 @@ export default function Hero({ lang, onOpenAdmission }) {
             width: 62% !important;
           }
           .hero-subtitle {
-            font-size: 0.82rem !important;
+            font-size: 0.83rem !important;
+            line-height: 1.45 !important;
             text-align: left !important;
+            font-weight: 700 !important;
+            color: #0f172a !important;
           }
           .hero-four-badges-row {
             gap: 10px 8px !important;
