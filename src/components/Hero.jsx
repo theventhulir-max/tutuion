@@ -22,7 +22,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           {/* Top Headline Box */}
           <div className="hero-title-box">
             
-            {/* Tagline with High-Contrast Color & Seamless Inline Highlight */}
+            {/* Tagline with Clean High-Contrast Color (No underline) */}
             <div style={{ marginBottom: '8px' }}>
               <span
                 className={lang === 'ta' ? 'hero-tagline-ta' : 'font-script hero-tagline-en'}
@@ -31,9 +31,6 @@ export default function Hero({ lang, onOpenAdmission }) {
                   color: '#c2410c',
                   display: 'inline-block',
                   lineHeight: 1.25,
-                  background: 'linear-gradient(180deg, transparent 65%, #fde047 65%)',
-                  padding: '2px 6px',
-                  borderRadius: '4px',
                   textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)'
                 }}
               >

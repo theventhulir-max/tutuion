@@ -7,15 +7,15 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
   const [activeTab, setActiveTab] = useState('Home');
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Exactly 5 clean, essential nav items
+  // Exactly clean, essential nav items
   const navLinks = [
     { name: 'Home', href: '#home', label: { en: 'Home', ta: 'முகப்பு' } },
-    { name: 'About', href: '#about', label: { en: 'About Us', ta: 'எங்களை பற்றி' } },
+    { name: 'About', href: '#about', label: { en: 'About Us', ta: 'அறிமுகம்' } },
     { name: 'Highlights', href: '#highlights', label: { en: 'Highlights', ta: 'அம்சங்கள்' } },
     { name: 'Faculty', href: '#faculty', label: { en: 'Teachers', ta: 'ஆசிரியர்கள்' } },
     { name: 'Courses', href: '#courses', label: { en: 'Courses', ta: 'பாடங்கள்' } },
     { name: 'Branches', href: '#branches', label: { en: 'Branches', ta: 'கிளைகள்' } },
-    { name: 'Gallery', href: '#gallery', label: { en: 'Gallery', ta: 'புகைப்படங்கள்' } },
+    { name: 'Gallery', href: '#gallery', label: { en: 'Gallery', ta: 'படங்கள்' } },
     { name: 'Contact', href: '#contact', label: { en: 'Contact', ta: 'தொடர்பு' } },
   ];
 
@@ -83,20 +83,20 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '10px 20px',
-        gap: '20px'
+        padding: '8px 20px',
+        gap: '14px'
       }}>
         
         {/* Brand Logo & Name */}
         <a href="#home" style={{ textDecoration: 'none', flexShrink: 0 }}>
-          <Logo size={48} showText={true} />
+          <Logo size={42} showText={true} />
         </a>
 
         {/* Center: Simplified Clean Nav Links (Single line with white-space nowrap) */}
         <nav style={{
           display: 'none',
           alignItems: 'center',
-          gap: 'clamp(10px, 1.4vw, 20px)',
+          gap: 'clamp(6px, 1.1vw, 16px)',
           flexWrap: 'nowrap'
         }} className="desktop-clean-nav">
           {navLinks.map((link) => {
@@ -107,11 +107,11 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
                 href={link.href}
                 onClick={() => setActiveTab(link.name)}
                 style={{
-                  fontSize: '0.90rem',
+                  fontSize: '0.86rem',
                   fontWeight: 700,
                   color: isActive ? '#0056b3' : '#334155',
                   textDecoration: 'none',
-                  padding: '6px 2px',
+                  padding: '5px 2px',
                   position: 'relative',
                   transition: 'all 0.2s ease',
                   borderBottom: isActive ? '2.5px solid #0056b3' : '2.5px solid transparent',
