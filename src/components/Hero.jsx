@@ -16,11 +16,11 @@ export default function Hero({ lang, onOpenAdmission }) {
     >
       <div className="container hero-inner-container" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
         
-        {/* Main Content Wrapper (Left Aligned, leaving right student 100% visible) */}
+        {/* Main Content Wrapper */}
         <div className="hero-left-content">
           
-          {/* Top Headline Box */}
-          <div className="hero-title-box">
+          {/* Top Headline Box (Full Width & Perfectly Centered on Mobile with Top Gap) */}
+          <div className="hero-headline-center-box">
             
             {/* Tagline with Clean High-Contrast Color (No underline) */}
             <div style={{ marginBottom: '8px' }}>
@@ -63,6 +63,10 @@ export default function Hero({ lang, onOpenAdmission }) {
               )}
             </h1>
 
+          </div>
+
+          {/* Middle Left Content (Subtitle & Badges on Left, keeping student on right visible) */}
+          <div className="hero-mid-left-box">
             {/* Subtitle Paragraph */}
             <p className="hero-subtitle" style={{
               color: '#334155',
@@ -75,63 +79,62 @@ export default function Hero({ lang, onOpenAdmission }) {
                 : 'Premier coaching for 6th–12th Std (State Board & CBSE), Engineering Mathematics (Anna Univ), Diploma & Degree courses in Korukkupet & Tondiarpet.'}
             </p>
 
-          </div>
-
-          {/* 4 Feature Badges in 1 Single Horizontal Row on Desktop (Centered Icons) */}
-          <div className="hero-four-badges-row">
-            
-            {/* Badge 1: Separate Batches */}
-            <div className="hero-badge-col">
-              <div className="hero-badge-icon" style={{
-                background: 'linear-gradient(135deg, #00875a 0%, #10b981 100%)',
-                boxShadow: '0 4px 12px rgba(0, 135, 90, 0.28)'
-              }}>
-                <Users size={21} color="#ffffff" />
+            {/* 4 Feature Badges */}
+            <div className="hero-four-badges-row">
+              
+              {/* Badge 1: Separate Batches */}
+              <div className="hero-badge-col">
+                <div className="hero-badge-icon" style={{
+                  background: 'linear-gradient(135deg, #00875a 0%, #10b981 100%)',
+                  boxShadow: '0 4px 12px rgba(0, 135, 90, 0.28)'
+                }}>
+                  <Users size={21} color="#ffffff" />
+                </div>
+                <span className="hero-badge-text">
+                  {lang === 'ta' ? 'ஆண், பெண் தனித்தனி வகுப்பு' : 'Separate Batches for Boys & Girls'}
+                </span>
               </div>
-              <span className="hero-badge-text">
-                {lang === 'ta' ? 'ஆண், பெண் தனித்தனி வகுப்பு' : 'Separate Batches for Boys & Girls'}
-              </span>
-            </div>
 
-            {/* Badge 2: Doorstep Home Tuition */}
-            <div className="hero-badge-col">
-              <div className="hero-badge-icon" style={{
-                background: 'linear-gradient(135deg, #5c54db 0%, #7c3aed 100%)',
-                boxShadow: '0 4px 12px rgba(92, 84, 219, 0.28)'
-              }}>
-                <Home size={21} color="#ffffff" />
+              {/* Badge 2: Doorstep Home Tuition */}
+              <div className="hero-badge-col">
+                <div className="hero-badge-icon" style={{
+                  background: 'linear-gradient(135deg, #5c54db 0%, #7c3aed 100%)',
+                  boxShadow: '0 4px 12px rgba(92, 84, 219, 0.28)'
+                }}>
+                  <Home size={21} color="#ffffff" />
+                </div>
+                <span className="hero-badge-text">
+                  {lang === 'ta' ? 'வீட்டுக்கே வந்து கற்பிக்கும் வசதி' : 'Doorstep Home Tuition Available'}
+                </span>
               </div>
-              <span className="hero-badge-text">
-                {lang === 'ta' ? 'வீட்டுக்கே வந்து கற்பிக்கும் வசதி' : 'Doorstep Home Tuition Available'}
-              </span>
-            </div>
 
-            {/* Badge 3: March Night Study Camps */}
-            <div className="hero-badge-col">
-              <div className="hero-badge-icon" style={{
-                background: 'linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%)',
-                boxShadow: '0 4px 12px rgba(2, 132, 199, 0.28)'
-              }}>
-                <FileText size={21} color="#ffffff" />
+              {/* Badge 3: March Night Study Camps */}
+              <div className="hero-badge-col">
+                <div className="hero-badge-icon" style={{
+                  background: 'linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%)',
+                  boxShadow: '0 4px 12px rgba(2, 132, 199, 0.28)'
+                }}>
+                  <FileText size={21} color="#ffffff" />
+                </div>
+                <span className="hero-badge-text">
+                  {lang === 'ta' ? 'மார்ச் இரவு நேர சிறப்பு முகாம்' : 'March Board Exam Night Study Camps'}
+                </span>
               </div>
-              <span className="hero-badge-text">
-                {lang === 'ta' ? 'மார்ச் இரவு நேர சிறப்பு முகாம்' : 'March Board Exam Night Study Camps'}
-              </span>
-            </div>
 
-            {/* Badge 4: Dedicated PG Specialist Teachers */}
-            <div className="hero-badge-col">
-              <div className="hero-badge-icon" style={{
-                background: 'linear-gradient(135deg, #ea580c 0%, #f97316 100%)',
-                boxShadow: '0 4px 12px rgba(234, 88, 12, 0.28)'
-              }}>
-                <UserCheck size={21} color="#ffffff" />
+              {/* Badge 4: Dedicated PG Specialist Teachers */}
+              <div className="hero-badge-col">
+                <div className="hero-badge-icon" style={{
+                  background: 'linear-gradient(135deg, #ea580c 0%, #f97316 100%)',
+                  boxShadow: '0 4px 12px rgba(234, 88, 12, 0.28)'
+                }}>
+                  <UserCheck size={21} color="#ffffff" />
+                </div>
+                <span className="hero-badge-text">
+                  {lang === 'ta' ? 'முதுகலை பட்டதாரி ஆசிரியர்கள்' : 'Dedicated PG Specialist Teachers'}
+                </span>
               </div>
-              <span className="hero-badge-text">
-                {lang === 'ta' ? 'முதுகலை பட்டதாரி ஆசிரியர்கள்' : 'Dedicated PG Specialist Teachers'}
-              </span>
-            </div>
 
+            </div>
           </div>
 
           {/* Action CTA Buttons */}
@@ -337,14 +340,14 @@ export default function Hero({ lang, onOpenAdmission }) {
             background-repeat: no-repeat;
             min-height: calc(100dvh - 65px) !important;
             height: auto !important;
-            padding: 24px 0 24px 0 !important;
+            padding: 16px 0 24px 0 !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
             box-sizing: border-box !important;
           }
           .hero-inner-container {
-            padding: 20px 18px 18px 18px !important;
+            padding: 16px 16px 16px 16px !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
@@ -357,75 +360,79 @@ export default function Hero({ lang, onOpenAdmission }) {
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
-            align-items: center !important;
-            text-align: center !important;
             height: 100% !important;
             flex: 1 !important;
           }
           
-          /* Full Center Width for Mobile */
-          .hero-title-box {
+          /* ONLY THIS HEADLINE & TAGLINE IS FULL-WIDTH CENTERED ON MOBILE */
+          .hero-headline-center-box {
             width: 100% !important;
             max-width: 100% !important;
-            margin: 14px auto 0 auto !important;
+            margin: 16px auto 14px auto !important;
             text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
           }
           .hero-tagline-en {
-            font-size: 1.65rem !important;
+            font-size: 1.6rem !important;
             line-height: 1.2 !important;
             text-align: center !important;
             display: block !important;
             margin: 0 auto 6px auto !important;
           }
           .hero-tagline-ta {
-            font-size: 1.25rem !important;
+            font-size: 1.2rem !important;
             line-height: 1.25 !important;
             text-align: center !important;
             display: block !important;
             margin: 0 auto 6px auto !important;
           }
           .hero-main-h1 {
-            font-size: 1.85rem !important;
-            line-height: 1.22 !important;
-            margin-bottom: 12px !important;
+            font-size: 1.8rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0 !important;
             text-align: center !important;
             width: 100% !important;
           }
+
+          /* SUBTITLE & BADGES REMAIN ON LEFT (62% width) SO RIGHT STUDENT STAYS VISIBLE */
+          .hero-mid-left-box {
+            max-width: 62% !important;
+            width: 62% !important;
+            align-self: flex-start !important;
+          }
           .hero-subtitle {
-            font-size: 0.88rem !important;
-            line-height: 1.5 !important;
-            margin: 0 auto 18px auto !important;
+            font-size: 0.85rem !important;
+            line-height: 1.45 !important;
+            margin-bottom: 16px !important;
             color: #1e293b !important;
             font-weight: 600 !important;
-            text-align: center !important;
-            max-width: 95% !important;
+            text-align: left !important;
           }
           
-          /* 2x2 grid on mobile centered */
+          /* 2x2 grid on mobile within left 60% */
           .hero-four-badges-row {
             display: grid !important;
             grid-template-columns: 1fr 1fr !important;
-            gap: 12px 12px !important;
+            gap: 12px 10px !important;
             width: 100% !important;
             max-width: 100% !important;
-            margin: 0 auto 24px auto !important;
+            margin-bottom: 20px !important;
           }
           .hero-badge-col {
-            align-items: center !important;
-            text-align: center !important;
+            align-items: flex-start !important;
+            text-align: left !important;
             gap: 6px !important;
-            background: rgba(255, 255, 255, 0.75) !important;
-            backdrop-filter: blur(8px) !important;
-            -webkit-backdrop-filter: blur(8px) !important;
-            padding: 10px 8px !important;
-            border-radius: 12px !important;
-            border: 1px solid rgba(226, 232, 240, 0.8) !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
           }
           .hero-badge-icon {
-            width: 38px !important;
-            height: 38px !important;
-            margin: 0 auto !important;
+            width: 36px !important;
+            height: 36px !important;
+            margin: 0 !important;
           }
           .hero-badge-icon svg {
             width: 18px !important;
@@ -435,7 +442,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             font-size: 0.74rem !important;
             line-height: 1.25 !important;
             font-weight: 800 !important;
-            text-align: center !important;
+            text-align: left !important;
           }
           
           .hero-actions-container {
@@ -465,49 +472,44 @@ export default function Hero({ lang, onOpenAdmission }) {
         @media (max-width: 480px) {
           .hero-section-custom {
             min-height: calc(100dvh - 60px) !important;
-            padding: 18px 0 20px 0 !important;
+            padding: 14px 0 20px 0 !important;
           }
           .hero-inner-container {
-            padding: 18px 14px 16px 14px !important;
+            padding: 16px 14px 16px 14px !important;
           }
-          .hero-title-box {
-            width: 100% !important;
-            max-width: 100% !important;
-            margin-top: 14px !important;
-            text-align: center !important;
+          .hero-headline-center-box {
+            margin: 14px auto 12px auto !important;
           }
           .hero-tagline-en {
-            font-size: 1.5rem !important;
-            text-align: center !important;
+            font-size: 1.45rem !important;
           }
           .hero-tagline-ta {
-            font-size: 1.15rem !important;
-            text-align: center !important;
+            font-size: 1.1rem !important;
           }
           .hero-main-h1 {
-            font-size: 1.65rem !important;
-            text-align: center !important;
+            font-size: 1.6rem !important;
+          }
+          .hero-mid-left-box {
+            max-width: 62% !important;
+            width: 62% !important;
           }
           .hero-subtitle {
             font-size: 0.82rem !important;
-            text-align: center !important;
-            max-width: 100% !important;
+            text-align: left !important;
           }
           .hero-four-badges-row {
-            width: 100% !important;
-            max-width: 100% !important;
             gap: 10px 8px !important;
           }
           .hero-badge-col {
-            align-items: center !important;
-            text-align: center !important;
+            align-items: flex-start !important;
+            text-align: left !important;
           }
           .hero-badge-icon {
-            margin: 0 auto !important;
+            margin: 0 !important;
           }
           .hero-badge-text {
             font-size: 0.70rem !important;
-            text-align: center !important;
+            text-align: left !important;
           }
           .hero-call-btn, .hero-wa-btn {
             font-size: 0.82rem !important;
