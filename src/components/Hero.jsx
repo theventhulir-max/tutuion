@@ -38,24 +38,32 @@ export default function Hero({ lang, onOpenAdmission }) {
               </span>
             </div>
 
-            {/* Main Bold Headline */}
+            {/* Main Bold Headline with 2 Clean Explicit Single Lines */}
             <h1 className="hero-main-h1" style={{
               fontWeight: 900,
               fontFamily: 'var(--font-heading)',
               color: '#093f7c',
-              lineHeight: 1.18,
+              lineHeight: 1.2,
               letterSpacing: '-0.025em',
               margin: '0 0 20px 0'
             }}>
               {lang === 'ta' ? (
                 <>
-                  மாணவர்களின் <span style={{ color: '#00875a' }}>கல்வி மேன்மைக்கும்</span> <br className="hero-desktop-br" />
-                  100% தேர்ச்சிக்கும் முழு வழிகாட்டல்!
+                  <span className="hero-h1-line-1" style={{ display: 'block' }}>
+                    மாணவர்களின் <span style={{ color: '#00875a' }}>கல்வி மேன்மைக்கும்</span>
+                  </span>
+                  <span className="hero-h1-line-2" style={{ display: 'block' }}>
+                    100% தேர்ச்சிக்கும் முழு வழிகாட்டல்!
+                  </span>
                 </>
               ) : (
                 <>
-                  Empowering Students with <br className="hero-desktop-br" />
-                  <span style={{ color: '#00875a' }}>Academic Excellence</span> & Top Scores!
+                  <span className="hero-h1-line-1" style={{ display: 'block' }}>
+                    Empowering Students with
+                  </span>
+                  <span className="hero-h1-line-2" style={{ display: 'block' }}>
+                    <span style={{ color: '#00875a' }}>Academic Excellence</span> & Top Scores!
+                  </span>
                 </>
               )}
             </h1>
@@ -256,8 +264,8 @@ export default function Hero({ lang, onOpenAdmission }) {
           padding: 38px 24px;
         }
         .hero-left-content {
-          max-width: 640px;
-          width: 58%;
+          max-width: 680px;
+          width: 60%;
         }
         .hero-tagline-en {
           font-size: 1.85rem;
@@ -268,8 +276,12 @@ export default function Hero({ lang, onOpenAdmission }) {
           letter-spacing: -0.01em;
         }
         .hero-main-h1 {
-          font-size: clamp(2.05rem, 2.9vw, 2.75rem);
+          font-size: clamp(2.2rem, 3.2vw, 2.95rem);
           line-height: 1.18;
+        }
+        .hero-h1-line-1, .hero-h1-line-2 {
+          white-space: nowrap;
+          display: block;
         }
         .hero-subtitle {
           font-size: 0.96rem;
@@ -388,11 +400,15 @@ export default function Hero({ lang, onOpenAdmission }) {
             margin: 0 auto 6px auto !important;
           }
           .hero-main-h1 {
-            font-size: 1.8rem !important;
-            line-height: 1.2 !important;
+            font-size: clamp(1.2rem, 5.0vw, 1.85rem) !important;
+            line-height: 1.22 !important;
             margin-bottom: 20px !important;
             text-align: center !important;
             width: 100% !important;
+          }
+          .hero-h1-line-1, .hero-h1-line-2 {
+            white-space: nowrap !important;
+            display: block !important;
           }
 
           /* SUBTITLE & BADGES REMAIN ON LEFT (62% width) SO RIGHT STUDENT STAYS VISIBLE */
@@ -487,7 +503,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             font-size: 1.1rem !important;
           }
           .hero-main-h1 {
-            font-size: 1.6rem !important;
+            font-size: clamp(1.08rem, 4.8vw, 1.45rem) !important;
             margin-bottom: 18px !important;
           }
           .hero-mid-left-box {
