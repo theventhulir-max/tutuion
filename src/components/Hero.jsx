@@ -22,28 +22,22 @@ export default function Hero({ lang, onOpenAdmission }) {
           {/* Top Headline Box */}
           <div className="hero-title-box">
             
-            {/* Cursive Tagline with High-Contrast Deep Color & Yellow Brush Accent */}
-            <div style={{ marginBottom: '6px' }}>
-              <span className="font-script hero-script-tag" style={{
-                fontWeight: 800,
-                color: '#c2410c',
-                display: 'inline-block',
-                position: 'relative',
-                lineHeight: 1.1,
-                textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)'
-              }}>
+            {/* Tagline with High-Contrast Color & Seamless Inline Highlight */}
+            <div style={{ marginBottom: '8px' }}>
+              <span
+                className={lang === 'ta' ? 'hero-tagline-ta' : 'font-script hero-tagline-en'}
+                style={{
+                  fontWeight: 800,
+                  color: '#c2410c',
+                  display: 'inline-block',
+                  lineHeight: 1.25,
+                  background: 'linear-gradient(180deg, transparent 65%, #fde047 65%)',
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)'
+                }}
+              >
                 {lang === 'ta' ? 'உங்கள் எதிர்காலத்தை பிரகாசமாக்குங்கள்' : 'Build Your Future With'}
-                <span style={{
-                  position: 'absolute',
-                  bottom: '2px',
-                  left: '10%',
-                  width: '85%',
-                  height: '7px',
-                  background: '#fde047',
-                  borderRadius: '999px',
-                  zIndex: -1,
-                  opacity: 0.95
-                }} />
               </span>
             </div>
 
@@ -52,9 +46,9 @@ export default function Hero({ lang, onOpenAdmission }) {
               fontWeight: 900,
               fontFamily: 'var(--font-heading)',
               color: '#093f7c',
-              lineHeight: 1.14,
+              lineHeight: 1.15,
               letterSpacing: '-0.025em',
-              margin: '0 0 14px 0'
+              margin: '0 0 12px 0'
             }}>
               {lang === 'ta' ? (
                 <>
@@ -76,7 +70,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             <p className="hero-subtitle" style={{
               color: '#334155',
               lineHeight: 1.55,
-              margin: '0 0 20px 0',
+              margin: '0 0 16px 0',
               fontWeight: 500
             }}>
               {lang === 'ta'
@@ -268,8 +262,13 @@ export default function Hero({ lang, onOpenAdmission }) {
           max-width: 580px;
           width: 55%;
         }
-        .hero-script-tag {
+        .hero-tagline-en {
           font-size: 1.85rem;
+        }
+        .hero-tagline-ta {
+          font-size: 1.35rem;
+          font-family: var(--font-heading);
+          letter-spacing: -0.01em;
         }
         .hero-main-h1 {
           font-size: clamp(2.2rem, 3.2vw, 2.9rem);
@@ -285,7 +284,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 14px;
-          margin-bottom: 24px;
+          margin-bottom: 22px;
           max-width: 560px;
         }
         .hero-badge-col {
@@ -370,9 +369,14 @@ export default function Hero({ lang, onOpenAdmission }) {
             max-width: 62% !important;
             text-align: center !important;
           }
-          .hero-script-tag {
+          .hero-tagline-en {
             font-size: 1.55rem !important;
             line-height: 1.15 !important;
+            text-align: center !important;
+          }
+          .hero-tagline-ta {
+            font-size: 1.15rem !important;
+            line-height: 1.2 !important;
             text-align: center !important;
           }
           .hero-main-h1 {
@@ -452,8 +456,12 @@ export default function Hero({ lang, onOpenAdmission }) {
             max-width: 62% !important;
             text-align: center !important;
           }
-          .hero-script-tag {
+          .hero-tagline-en {
             font-size: 1.45rem !important;
+            text-align: center !important;
+          }
+          .hero-tagline-ta {
+            font-size: 1.05rem !important;
             text-align: center !important;
           }
           .hero-main-h1 {
