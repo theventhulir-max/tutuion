@@ -43,25 +43,25 @@ export default function Hero({ lang, onOpenAdmission }) {
               fontWeight: 900,
               fontFamily: 'var(--font-heading)',
               color: '#093f7c',
-              lineHeight: 1.2,
+              lineHeight: 1.15,
               letterSpacing: '-0.025em',
               margin: '0 0 20px 0'
             }}>
               {lang === 'ta' ? (
                 <>
-                  <span className="hero-h1-line-1" style={{ display: 'block' }}>
+                  <span className="hero-h1-line-1" style={{ display: 'block', whiteSpace: 'nowrap' }}>
                     மாணவர்களின் <span style={{ color: '#00875a' }}>கல்வி மேன்மைக்கும்</span>
                   </span>
-                  <span className="hero-h1-line-2" style={{ display: 'block' }}>
+                  <span className="hero-h1-line-2" style={{ display: 'block', whiteSpace: 'nowrap' }}>
                     100% தேர்ச்சிக்கும் முழு வழிகாட்டல்!
                   </span>
                 </>
               ) : (
                 <>
-                  <span className="hero-h1-line-1" style={{ display: 'block' }}>
+                  <span className="hero-h1-line-1" style={{ display: 'block', whiteSpace: 'nowrap' }}>
                     Empowering Students with
                   </span>
-                  <span className="hero-h1-line-2" style={{ display: 'block' }}>
+                  <span className="hero-h1-line-2" style={{ display: 'block', whiteSpace: 'nowrap' }}>
                     <span style={{ color: '#00875a' }}>Academic Excellence</span> & Top Scores!
                   </span>
                 </>
@@ -264,8 +264,8 @@ export default function Hero({ lang, onOpenAdmission }) {
           padding: 38px 24px;
         }
         .hero-left-content {
-          max-width: 740px;
-          width: 62%;
+          max-width: 780px;
+          width: 65%;
         }
         .hero-tagline-en {
           font-size: 1.85rem;
@@ -276,12 +276,12 @@ export default function Hero({ lang, onOpenAdmission }) {
           letter-spacing: -0.01em;
         }
         .hero-main-h1 {
-          font-size: clamp(2.45rem, 3.6vw, 3.25rem);
-          line-height: 1.18;
+          font-size: clamp(2.55rem, 3.8vw, 3.4rem);
+          line-height: 1.15;
         }
         .hero-h1-line-1, .hero-h1-line-2 {
-          white-space: nowrap;
-          display: block;
+          white-space: nowrap !important;
+          display: block !important;
         }
         .hero-subtitle {
           font-size: 0.96rem;
