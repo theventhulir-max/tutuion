@@ -390,7 +390,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           .hero-main-h1 {
             font-size: 1.8rem !important;
             line-height: 1.2 !important;
-            margin-bottom: 0 !important;
+            margin-bottom: 20px !important;
             text-align: center !important;
             width: 100% !important;
           }
@@ -400,6 +400,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             max-width: 62% !important;
             width: 62% !important;
             align-self: flex-start !important;
+            margin-top: 16px !important;
           }
           .hero-subtitle {
             font-size: 0.86rem !important;
@@ -487,10 +488,12 @@ export default function Hero({ lang, onOpenAdmission }) {
           }
           .hero-main-h1 {
             font-size: 1.6rem !important;
+            margin-bottom: 18px !important;
           }
           .hero-mid-left-box {
             max-width: 62% !important;
             width: 62% !important;
+            margin-top: 14px !important;
           }
           .hero-subtitle {
             font-size: 0.83rem !important;
