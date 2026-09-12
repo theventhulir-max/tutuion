@@ -337,14 +337,14 @@ export default function Hero({ lang, onOpenAdmission }) {
             background-repeat: no-repeat;
             min-height: calc(100dvh - 65px) !important;
             height: auto !important;
-            padding: 20px 0 24px 0 !important;
+            padding: 16px 0 24px 0 !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
             box-sizing: border-box !important;
           }
           .hero-inner-container {
-            padding: 12px 16px 16px 16px !important;
+            padding: 16px 16px 16px 16px !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
@@ -361,25 +361,29 @@ export default function Hero({ lang, onOpenAdmission }) {
             flex: 1 !important;
           }
           
-          /* Restrict top text & badges to LEFT 62% on mobile so student on right is 100% visible and centered within that area */
+          /* Restrict top text & badges to LEFT 62% on mobile so student on right is 100% visible */
           .hero-title-box {
             max-width: 62% !important;
-            text-align: center !important;
+            margin-top: 14px !important;
           }
           .hero-tagline-en {
             font-size: 1.55rem !important;
             line-height: 1.15 !important;
             text-align: center !important;
+            display: block !important;
+            margin: 0 auto !important;
           }
           .hero-tagline-ta {
             font-size: 1.15rem !important;
             line-height: 1.2 !important;
             text-align: center !important;
+            display: block !important;
+            margin: 0 auto !important;
           }
           .hero-main-h1 {
             font-size: 1.75rem !important;
             line-height: 1.16 !important;
-            margin-bottom: 8px !important;
+            margin-bottom: 10px !important;
             text-align: center !important;
           }
           .hero-subtitle {
@@ -388,10 +392,10 @@ export default function Hero({ lang, onOpenAdmission }) {
             margin-bottom: 16px !important;
             color: #1e293b !important;
             font-weight: 600 !important;
-            text-align: center !important;
+            text-align: left !important;
           }
           
-          /* 2x2 grid on mobile within left 60% with centered content */
+          /* 2x2 grid on mobile within left 60% */
           .hero-four-badges-row {
             display: grid !important;
             grid-template-columns: 1fr 1fr !important;
@@ -400,14 +404,14 @@ export default function Hero({ lang, onOpenAdmission }) {
             margin-bottom: 22px !important;
           }
           .hero-badge-col {
-            align-items: center !important;
-            text-align: center !important;
+            align-items: flex-start !important;
+            text-align: left !important;
             gap: 6px !important;
           }
           .hero-badge-icon {
             width: 36px !important;
             height: 36px !important;
-            margin: 0 auto !important;
+            margin: 0 !important;
           }
           .hero-badge-icon svg {
             width: 18px !important;
@@ -417,7 +421,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             font-size: 0.74rem !important;
             line-height: 1.25 !important;
             font-weight: 800 !important;
-            text-align: center !important;
+            text-align: left !important;
           }
           
           .hero-actions-container {
@@ -447,11 +451,14 @@ export default function Hero({ lang, onOpenAdmission }) {
         @media (max-width: 480px) {
           .hero-section-custom {
             min-height: calc(100dvh - 60px) !important;
-            padding: 16px 0 20px 0 !important;
+            padding: 14px 0 20px 0 !important;
+          }
+          .hero-inner-container {
+            padding: 16px 14px 16px 14px !important;
           }
           .hero-title-box {
             max-width: 62% !important;
-            text-align: center !important;
+            margin-top: 12px !important;
           }
           .hero-tagline-en {
             font-size: 1.45rem !important;
@@ -467,22 +474,22 @@ export default function Hero({ lang, onOpenAdmission }) {
           }
           .hero-subtitle {
             font-size: 0.82rem !important;
-            text-align: center !important;
+            text-align: left !important;
           }
           .hero-four-badges-row {
             max-width: 62% !important;
             gap: 10px 8px !important;
           }
           .hero-badge-col {
-            align-items: center !important;
-            text-align: center !important;
+            align-items: flex-start !important;
+            text-align: left !important;
           }
           .hero-badge-icon {
-            margin: 0 auto !important;
+            margin: 0 !important;
           }
           .hero-badge-text {
             font-size: 0.70rem !important;
-            text-align: center !important;
+            text-align: left !important;
           }
           .hero-call-btn, .hero-wa-btn {
             font-size: 0.82rem !important;
