@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Phone, Navigation, Building2, CheckCircle2, Clock, Sparkles, MessageCircle, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Navigation, Building2, CheckCircle2, Clock, Sparkles, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { tuitionData } from '../data/tuitionData';
 
 export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
@@ -10,16 +11,17 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
       titleTa: 'கொருக்குப்பேட்டை கிளை',
       areaTagEn: 'Korukkupet • Chennai 600021',
       areaTagTa: 'கொருக்குப்பேட்டை • சென்னை 21',
-      address: 'No: 12, Driver Colony, Kathivakkam High Road (K.H. Road), Korukkupet, Chennai - 600 021.',
+      addressEn: 'No: 12, Driver Colony, Kathivakkam High Road (K.H. Road), Korukkupet, Chennai - 600 021.',
+      addressTa: 'எண்: 12, டிரைவர் காலனி தெரு, கத்திவாக்கம் ஹை ரோடு, கொருக்குப்பேட்டை, சென்னை - 600 021.',
       landmarkEn: 'Near Kathivakkam High Road Junction',
       landmarkTa: 'கத்திவாக்கம் நெடுஞ்சாலை & டிரைவர் காலனி அருகில்',
-      phone: '98400 52675',
+      phone: '80155 73223',
       altPhone: '82480 06633',
       timingsEn: 'Mon–Sun: 6:00 AM – 9:30 PM',
       timingsTa: 'திங்கள்–ஞாயிறு: காலை 6:00 – இரவு 9:30',
       img: '/images/about_building.jpg',
-      featuresTa: ['ஆண் பெண் தனித்தனி வகுப்பு', 'A/C வகுப்பறைகள்', 'CCTV கண்காணிப்பு', 'தேர்வு முகாம் வசதி'],
-      featuresEn: ['Separate Boys & Girls Batches', 'Smart Classrooms', 'CCTV Security', 'Night Camp Facility'],
+      featuresTa: ['ஆண் / பெண் தனி வகுப்பு', 'A/C வகுப்பறைகள்', 'CCTV கண்காணிப்பு', 'தேர்வு சிறப்பு முகாம்'],
+      featuresEn: ['Separate Boys/Girls Batches', 'A/C Smart Classrooms', '24/7 CCTV Security', 'Special Exam Camp'],
       mapQuery: '12 Driver Colony Kathivakkam High Road Korukkupet Chennai 600021'
     },
     {
@@ -28,25 +30,27 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
       titleTa: 'தண்டையார்பேட்டை கிளை',
       areaTagEn: 'Tondiarpet • Chennai 600081',
       areaTagTa: 'VOC நகர் • சென்னை 81',
-      address: 'No. 86/40, 40th, 8th Cross Street, VOC Nagar, Tondiarpet, Chennai - 600 081.',
+      addressEn: 'No. 86/40, 40th, 8th Cross Street, VOC Nagar, Tondiarpet, Chennai - 600 081.',
+      addressTa: 'எண்: 86/40, 40வது தெரு, 8வது குறுக்கு தெரு, வ.உ.சி நகர், தண்டையார்பேட்டை, சென்னை - 600 081.',
       landmarkEn: 'Near VOC Nagar 8th Cross Street',
       landmarkTa: 'VOC நகர் 8வது குறுக்கு தெரு சந்திப்பு அருகில்',
-      phone: '98400 52675',
+      phone: '80155 73223',
       altPhone: '82480 06633',
       timingsEn: 'Mon–Sun: 6:00 AM – 9:30 PM',
       timingsTa: 'திங்கள்–ஞாயிறு: காலை 6:00 – இரவு 9:30',
       img: '/images/library_study.jpg',
-      featuresTa: ['முதுகலை சிறப்பு ஆசிரியர்கள்', 'வாராந்திர தேர்வுகள்', 'அமைதியான கற்றல் சூழல்', '100% தேர்ச்சி சாதனை'],
+      featuresTa: ['முதுகலை ஆசிரியர்கள்', 'வாராந்திர தேர்வுகள்', 'அமைதியான கற்றல் சூழல்', '100% தேர்ச்சி சாதனை'],
       featuresEn: ['PG Specialist Faculty', 'Weekly Mock Tests', 'Peaceful Study Ambience', '100% Board Success'],
       mapQuery: '86/40 8th Cross Street VOC Nagar Tondiarpet Chennai 600081'
     }
   ];
 
   return (
-    <section id="branches" style={{
-      background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f0f7ff 100%)',
+    <section id="branches" className="branches-section-wrapper" style={{
+      background: 'var(--section-alt-bg)',
       padding: '85px 0 90px 0',
-      borderTop: '1px solid #e2e8f0',
+      borderTop: '1px solid var(--section-alt-border)',
+      borderBottom: '1px solid var(--section-alt-border)',
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -65,14 +69,17 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         
         {/* Section Header */}
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          alignItems: 'flex-end',
-          gap: '20px',
-          marginBottom: '48px'
-        }}>
+        <div 
+          className="reveal-on-scroll branches-section-header"
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            gap: '20px',
+            marginBottom: '42px'
+          }}
+        >
           <div>
             <div style={{ marginBottom: '6px' }}>
               <span className="font-script" style={{
@@ -82,49 +89,53 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                 display: 'inline-block',
                 position: 'relative',
                 lineHeight: 1.1,
+                isolation: 'isolate',
                 textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)'
               }}>
-                {lang === 'ta' ? 'எங்கள் கிளைகள்' : 'Our Branches'}
+                <span style={{ position: 'relative', zIndex: 2 }}>
+                  {lang === 'ta' ? 'எங்கள் கிளைகள்' : 'Our Branches'}
+                </span>
                 <span style={{
                   position: 'absolute',
                   bottom: '2px',
-                  left: '8%',
-                  width: '84%',
+                  left: '6%',
+                  width: '88%',
                   height: '7px',
                   background: '#fde047',
                   borderRadius: '999px',
-                  zIndex: -1,
-                  opacity: 0.95
+                  zIndex: 1,
+                  opacity: 0.95,
+                  pointerEvents: 'none'
                 }} />
               </span>
             </div>
 
-            <h2 style={{
-              fontSize: 'clamp(2rem, 3.6vw, 2.85rem)',
+            <h2 className="branches-main-heading" style={{
+              fontSize: 'clamp(1.9rem, 3.8vw, 2.9rem)',
               fontWeight: 900,
               fontFamily: 'var(--font-heading)',
-              color: '#093f7c',
-              lineHeight: 1.2,
+              color: 'var(--primary-navy)',
+              lineHeight: 1.18,
               letterSpacing: '-0.02em',
               margin: 0
             }}>
               {lang === 'ta' ? (
                 <>
-                  உங்களுக்கு அருகிலுள்ள <span style={{ color: '#00875a' }}>முக்கிய கிளைகள்</span>
+                  நேரடி பயிற்சி <span style={{ color: 'var(--accent-green)' }}>மையங்கள்</span>
                 </>
               ) : (
                 <>
-                  Find Us <span style={{ color: '#00875a' }}>Near You</span>
+                  Two Convenient <span style={{ color: 'var(--accent-green)' }}>Campus Locations</span>
                 </>
               )}
             </h2>
           </div>
 
-          <p style={{
+          <p className="branches-main-subtext" style={{
             fontSize: '0.96rem',
             color: '#64748b',
+            maxWidth: '460px',
             lineHeight: 1.6,
-            maxWidth: '500px',
             margin: 0
           }}>
             {lang === 'ta'
@@ -137,8 +148,8 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '32px',
-          marginBottom: '45px'
+          gap: '28px',
+          marginBottom: '38px'
         }} className="branches-main-grid">
           {branches.map((b) => (
             <div
@@ -148,7 +159,7 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                 borderRadius: '24px',
                 border: '1.5px solid #e2e8f0',
                 overflow: 'hidden',
-                boxShadow: '0 8px 30px rgba(9, 63, 124, 0.06)',
+                boxShadow: '0 8px 30px var(--theme-glow)',
                 transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -158,15 +169,15 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
               className="branch-card-item"
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.borderColor = '#93c5fd';
-                e.currentTarget.style.boxShadow = '0 18px 40px rgba(9, 63, 124, 0.12)';
+                e.currentTarget.style.borderColor = 'var(--primary-blue)';
+                e.currentTarget.style.boxShadow = '0 18px 40px var(--theme-glow)';
                 const img = e.currentTarget.querySelector('.branch-img-zoom');
                 if (img) img.style.transform = 'scale(1.05)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.borderColor = '#e2e8f0';
-                e.currentTarget.style.boxShadow = '0 8px 30px rgba(9, 63, 124, 0.06)';
+                e.currentTarget.style.boxShadow = '0 8px 30px var(--theme-glow)';
                 const img = e.currentTarget.querySelector('.branch-img-zoom');
                 if (img) img.style.transform = 'scale(1)';
               }}
@@ -174,12 +185,12 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
               <div>
                 
                 {/* Top Campus Photo with Dark Gradient & Frosted Badges */}
-                <div style={{
+                <div className="branch-img-container" style={{
                   position: 'relative',
-                  height: '220px',
+                  height: '210px',
                   width: '100%',
                   overflow: 'hidden',
-                  background: '#093f7c'
+                  background: 'var(--primary-navy)'
                 }}>
                   <img
                     src={b.img}
@@ -202,153 +213,149 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(180deg, rgba(9, 63, 124, 0.3) 0%, rgba(9, 63, 124, 0.8) 100%)',
+                    background: 'linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%)',
                     pointerEvents: 'none'
                   }} />
 
                   {/* Top Left: Frosted Location Tag */}
-                  <div style={{
+                  <div className="branch-loc-badge" style={{
                     position: 'absolute',
-                    top: '14px',
-                    left: '14px',
-                    background: 'rgba(255, 255, 255, 0.95)',
+                    top: '12px',
+                    left: '12px',
+                    background: 'rgba(255, 255, 255, 0.96)',
                     backdropFilter: 'blur(10px)',
-                    padding: '6px 14px',
+                    padding: '5px 12px',
                     borderRadius: '999px',
-                    fontSize: '0.80rem',
+                    fontSize: '0.78rem',
                     fontWeight: 800,
-                    color: '#093f7c',
+                    color: 'var(--primary-navy)',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '6px',
-                    boxShadow: '0 4px 14px rgba(0,0,0,0.15)'
+                    gap: '5px',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
                   }}>
-                    <MapPin size={14} style={{ color: '#00875a' }} />
+                    <MapPin size={13} style={{ color: 'var(--accent-green)' }} />
                     <span>{lang === 'ta' ? b.areaTagTa : b.areaTagEn}</span>
                   </div>
 
                   {/* Top Right: Status Badge */}
-                  <div style={{
+                  <div className="branch-status-badge" style={{
                     position: 'absolute',
-                    top: '14px',
-                    right: '14px',
-                    background: '#00875a',
+                    top: '12px',
+                    right: '12px',
+                    background: 'var(--accent-green)',
                     color: '#ffffff',
-                    padding: '5px 12px',
+                    padding: '5px 11px',
                     borderRadius: '999px',
-                    fontSize: '0.74rem',
+                    fontSize: '0.72rem',
                     fontWeight: 800,
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '5px',
-                    boxShadow: '0 4px 10px rgba(0, 135, 90, 0.4)'
+                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
                   }}>
-                    <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#86efac', display: 'inline-block' }} />
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#86efac', display: 'inline-block' }} />
                     <span>{lang === 'ta' ? 'சேர்க்கை நடக்கிறது' : 'Admissions Open'}</span>
                   </div>
 
                   {/* Bottom Image Title Overlay */}
-                  <div style={{
+                  <div className="branch-title-overlay" style={{
                     position: 'absolute',
-                    bottom: '14px',
-                    left: '18px',
-                    right: '18px',
+                    bottom: '12px',
+                    left: '16px',
+                    right: '16px',
                     color: '#ffffff'
                   }}>
-                    <h3 style={{
-                      fontSize: '1.35rem',
+                    <h3 className="branch-title-ta" style={{
+                      fontSize: '1.25rem',
                       fontWeight: 900,
                       fontFamily: 'var(--font-heading)',
                       color: '#ffffff',
-                      margin: '0 0 2px 0',
-                      textShadow: '0 2px 4px rgba(0,0,0,0.4)'
+                      margin: '0',
+                      textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                      letterSpacing: '0.01em'
                     }}>
                       {lang === 'ta' ? b.titleTa : b.titleEn}
                     </h3>
-                    <div style={{
-                      fontSize: '0.86rem',
-                      fontWeight: 700,
-                      color: '#fde047'
-                    }}>
-                      {lang === 'ta' ? b.titleEn : b.titleTa}
-                    </div>
                   </div>
                 </div>
 
                 {/* Card Body Info */}
-                <div style={{ padding: '24px 24px 16px 24px' }}>
+                <div className="branch-body-content" style={{ padding: '20px 20px 14px 20px' }}>
                   
                   {/* Address Box */}
-                  <div style={{
+                  <div className="branch-address-box" style={{
                     display: 'flex',
                     alignItems: 'flex-start',
-                    gap: '12px',
+                    gap: '10px',
                     color: '#334155',
-                    fontSize: '0.92rem',
-                    lineHeight: 1.55,
-                    marginBottom: '16px',
+                    fontSize: '0.88rem',
+                    lineHeight: 1.5,
+                    marginBottom: '14px',
                     background: '#f8fafc',
-                    padding: '14px 16px',
-                    borderRadius: '14px',
+                    padding: '12px 14px',
+                    borderRadius: '12px',
                     border: '1px solid #e2e8f0'
                   }}>
-                    <Building2 size={20} style={{ color: '#0056b3', flexShrink: 0, marginTop: '2px' }} />
+                    <Building2 size={18} style={{ color: '#0056b3', flexShrink: 0, marginTop: '2px' }} />
                     <div>
-                      <div style={{ fontWeight: 600 }}>{b.address}</div>
-                      <div style={{ fontSize: '0.80rem', color: '#64748b', marginTop: '4px', fontWeight: 600 }}>
+                      <div style={{ fontWeight: 600 }}>{lang === 'ta' ? b.addressTa : b.addressEn}</div>
+                      <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '3px', fontWeight: 600 }}>
                         📍 {lang === 'ta' ? b.landmarkTa : b.landmarkEn}
                       </div>
                     </div>
                   </div>
 
                   {/* 4 Feature Tags */}
-                  <div style={{
+                  <div className="branch-features-grid" style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr',
-                    gap: '8px',
-                    marginBottom: '18px'
+                    gap: '7px',
+                    marginBottom: '14px'
                   }}>
                     {(lang === 'ta' ? b.featuresTa : b.featuresEn).map((f, fIdx) => (
                       <div
                         key={fIdx}
+                        className="branch-feature-chip"
                         style={{
                           display: 'flex',
                           alignItems: 'center',
                           gap: '6px',
-                          fontSize: '0.78rem',
+                          fontSize: '0.75rem',
                           fontWeight: 700,
                           color: '#0f172a',
                           background: '#ffffff',
-                          padding: '6px 10px',
+                          padding: '6px 8px',
                           borderRadius: '8px',
-                          border: '1px solid #e2e8f0'
+                          border: '1px solid #e2e8f0',
+                          lineHeight: 1.25
                         }}
                       >
                         <CheckCircle2 size={13} style={{ color: '#00875a', flexShrink: 0 }} />
-                        <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{f}</span>
+                        <span>{f}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Timings & Contact Info */}
-                  <div style={{
+                  <div className="branch-timing-phone-row" style={{
                     display: 'flex',
                     flexWrap: 'wrap',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    gap: '10px',
-                    paddingTop: '12px',
+                    gap: '8px',
+                    paddingTop: '10px',
                     borderTop: '1px solid #f1f5f9',
-                    fontSize: '0.82rem',
+                    fontSize: '0.80rem',
                     color: '#64748b'
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, color: '#093f7c' }}>
-                      <Clock size={15} style={{ color: '#f59e0b' }} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 700, color: '#093f7c' }}>
+                      <Clock size={14} style={{ color: '#f59e0b', flexShrink: 0 }} />
                       <span>{lang === 'ta' ? b.timingsTa : b.timingsEn}</span>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 800, color: '#0056b3' }}>
-                      <Phone size={14} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 800, color: '#0056b3' }}>
+                      <Phone size={13} style={{ flexShrink: 0 }} />
                       <span>{b.phone}</span>
                     </div>
                   </div>
@@ -356,19 +363,21 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                 </div>
               </div>
 
-              {/* Bottom Actions: Get Directions + Direct Call + WhatsApp */}
-              <div style={{
-                padding: '0 24px 22px 24px',
+              {/* Bottom Actions: Get Directions + Direct Call + WhatsApp (Guaranteed Perfect Fit) */}
+              <div className="branch-actions-grid" style={{
+                padding: '0 20px 18px 20px',
                 display: 'grid',
-                gridTemplateColumns: '1.2fr 1fr 0.45fr',
-                gap: '10px',
-                marginTop: 'auto'
+                gridTemplateColumns: '1.2fr 1fr 44px',
+                gap: '8px',
+                marginTop: 'auto',
+                alignItems: 'center'
               }}>
                 {/* 1. Get Directions */}
                 <a
                   href={`https://maps.google.com/?q=${encodeURIComponent(b.mapQuery)}`}
                   target="_blank"
                   rel="noreferrer"
+                  className="branch-action-btn branch-btn-maps"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -377,9 +386,9 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                     background: '#ffffff',
                     color: '#0056b3',
                     border: '1.5px solid #0056b3',
-                    padding: '11px 12px',
+                    padding: '10px 10px',
                     borderRadius: '999px',
-                    fontSize: '0.86rem',
+                    fontSize: '0.84rem',
                     fontWeight: 800,
                     textDecoration: 'none',
                     transition: 'all 0.2s ease',
@@ -395,13 +404,14 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                     e.currentTarget.style.color = '#0056b3';
                   }}
                 >
-                  <Navigation size={15} />
+                  <Navigation size={14} style={{ flexShrink: 0 }} />
                   <span>{lang === 'ta' ? 'திசைகள் (Maps)' : 'Directions'}</span>
                 </a>
 
                 {/* 2. Call Button */}
                 <a
-                  href={`tel:${b.phone}`}
+                  href={`tel:${b.phone.replace(/\s+/g, '')}`}
+                  className="branch-action-btn branch-btn-call"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -409,9 +419,9 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                     gap: '6px',
                     background: '#093f7c',
                     color: '#ffffff',
-                    padding: '11px 12px',
+                    padding: '10px 10px',
                     borderRadius: '999px',
-                    fontSize: '0.86rem',
+                    fontSize: '0.84rem',
                     fontWeight: 800,
                     textDecoration: 'none',
                     border: 'none',
@@ -428,41 +438,42 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                     e.currentTarget.style.transform = 'translateY(0)';
                   }}
                 >
-                  <Phone size={15} />
+                  <Phone size={14} style={{ flexShrink: 0 }} />
                   <span>{lang === 'ta' ? 'அழைக்க' : 'Call'}</span>
                 </a>
 
-                {/* 3. WhatsApp Icon Button */}
+                {/* 3. WhatsApp Icon Button - Fixed size so it NEVER gets squished or clipped */}
                 <a
-                  href={`https://wa.me/91${b.phone}?text=Hello%20JP%20Goodwill%20Tuition%20Centre,%20I%20want%20to%20enquire%20about%20${encodeURIComponent(b.titleEn)}`}
+                  href={`https://wa.me/91${b.phone.replace(/\s+/g, '')}?text=Hello%20JP%20Goodwill%20Tuition%20Centre,%20I%20want%20to%20enquire%20about%20${encodeURIComponent(b.titleEn)}`}
                   target="_blank"
                   rel="noreferrer"
+                  className="branch-action-btn branch-btn-wa"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    background: '#00875a',
+                    background: '#25D366',
                     color: '#ffffff',
-                    padding: '11px 0',
+                    width: '44px',
+                    height: '42px',
                     borderRadius: '999px',
-                    fontSize: '0.86rem',
-                    fontWeight: 800,
                     textDecoration: 'none',
                     border: 'none',
                     transition: 'all 0.2s ease',
-                    boxShadow: '0 4px 12px rgba(0, 135, 90, 0.25)'
+                    boxShadow: '0 4px 12px rgba(37, 211, 102, 0.35)',
+                    flexShrink: 0
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-1px)';
-                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(0, 135, 90, 0.35)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(37, 211, 102, 0.45)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 135, 90, 0.25)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.35)';
                   }}
                   title="WhatsApp"
                 >
-                  <MessageCircle size={16} />
+                  <WhatsAppIcon size={17} />
                 </a>
               </div>
 
@@ -471,11 +482,11 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
         </div>
 
         {/* View All Branches / Quick Admission Inquiry Strip */}
-        <div style={{
+        <div className="branch-enquiry-banner" style={{
           background: '#ffffff',
           borderRadius: '20px',
           border: '1.5px solid #e2e8f0',
-          padding: '22px 28px',
+          padding: '20px 24px',
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
@@ -483,10 +494,10 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
           gap: '16px',
           boxShadow: '0 4px 16px rgba(0, 0, 0, 0.02)'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div className="branch-enquiry-info" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <div style={{
-              width: '46px',
-              height: '46px',
+              width: '44px',
+              height: '44px',
               borderRadius: '50%',
               background: '#e6f7ef',
               color: '#00875a',
@@ -495,13 +506,13 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
               justifyContent: 'center',
               flexShrink: 0
             }}>
-              <Building2 size={24} />
+              <Building2 size={22} />
             </div>
             <div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 900, color: '#093f7c', fontFamily: 'var(--font-heading)' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 900, color: '#093f7c', fontFamily: 'var(--font-heading)' }}>
                 {lang === 'ta' ? 'உங்கள் பகுதிக்கு அருகிலுள்ள கிளையில் இப்போதே முன்பதிவு செய்யுங்கள்' : 'Visit or Enquire at Your Nearest Campus Today'}
               </div>
-              <div style={{ fontSize: '0.84rem', color: '#64748b', marginTop: '2px' }}>
+              <div style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '2px' }}>
                 {lang === 'ta' ? 'கொருக்குப்பேட்டை & தண்டையார்பேட்டை கிளைகளில் புதிய சேர்க்கை நடைபெறுகிறது' : 'Direct admission counselling available at Korukkupet & Tondiarpet branches'}
               </div>
             </div>
@@ -509,13 +520,14 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
 
           <button
             onClick={onOpenAdmission}
+            className="branch-enquiry-cta"
             style={{
               background: '#00875a',
               color: '#ffffff',
-              padding: '12px 24px',
+              padding: '11px 22px',
               borderRadius: '999px',
               fontWeight: 800,
-              fontSize: '0.92rem',
+              fontSize: '0.90rem',
               border: 'none',
               cursor: 'pointer',
               display: 'inline-flex',
@@ -541,9 +553,87 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
 
       <style>{`
         @media (max-width: 860px) {
+          .branches-section-wrapper {
+            padding: 42px 0 48px 0 !important;
+          }
+          .branches-section-header {
+            margin-bottom: 20px !important;
+            gap: 10px !important;
+          }
+          .branches-main-heading {
+            font-size: 1.5rem !important;
+          }
+          .branches-main-subtext {
+            font-size: 0.84rem !important;
+            line-height: 1.45 !important;
+          }
           .branches-main-grid {
             grid-template-columns: 1fr !important;
-            gap: 24px !important;
+            gap: 14px !important;
+            margin-bottom: 18px !important;
+          }
+          .branch-card-item {
+            border-radius: 16px !important;
+          }
+          .branch-img-container {
+            height: 140px !important;
+          }
+          .branch-title-ta {
+            font-size: 1.05rem !important;
+          }
+          .branch-body-content {
+            padding: 12px 12px 8px 12px !important;
+          }
+          .branch-address-box {
+            padding: 8px 10px !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 8px !important;
+          }
+          .branch-features-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 5px !important;
+            margin-bottom: 8px !important;
+          }
+          .branch-feature-chip {
+            padding: 4px 6px !important;
+            font-size: 0.70rem !important;
+          }
+          .branch-timing-phone-row {
+            padding-top: 6px !important;
+            font-size: 0.74rem !important;
+            gap: 5px !important;
+          }
+          .branch-actions-grid {
+            padding: 0 12px 14px 12px !important;
+            grid-template-columns: 1fr 1fr 38px !important;
+            gap: 6px !important;
+          }
+          .branch-btn-maps,
+          .branch-btn-call {
+            padding: 8px 6px !important;
+            font-size: 0.76rem !important;
+          }
+          .branch-btn-wa {
+            width: 38px !important;
+            height: 36px !important;
+          }
+          .branch-enquiry-banner {
+            padding: 14px 12px !important;
+            border-radius: 14px !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            text-align: center !important;
+          }
+          .branch-enquiry-info {
+            flex-direction: column !important;
+            text-align: center !important;
+            gap: 8px !important;
+          }
+          .branch-enquiry-cta {
+            width: 100% !important;
+            justify-content: center !important;
+            padding: 10px 14px !important;
           }
         }
       `}</style>

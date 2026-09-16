@@ -1,7 +1,7 @@
 export const tuitionData = {
   name: {
     en: "JP Goodwill Tuition Centre",
-    ta: "குட்வில் டியூஷன் சென்டர்",
+    ta: "JP Goodwill Tuition Centre",
     th: "JP Goodwill Tuition Centre"
   },
   tagline: {
@@ -14,10 +14,10 @@ export const tuitionData = {
   passPercentage: "100%",
   batchStartDate: "July 1st & Ongoing Admissions",
   
-  phones: ["9840052675", "8248006633"],
-  displayPhones: ["98400 52675", "82480 06633"],
-  whatsappNumber: "919840052675",
-  email: "paranthaman400@gmail.com",
+  phones: ["8015573223", "8248006633"],
+  displayPhones: ["80155 73223", "82480 06633"],
+  whatsappNumber: "918015573223",
+  email: "mentorixacademy.ma@gmail.com",
 
   branches: [
     {

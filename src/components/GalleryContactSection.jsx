@@ -18,8 +18,25 @@ export default function GalleryContactSection({ lang }) {
 
   const handleSend = (e) => {
     e.preventDefault();
-    const text = `📬 *NEW CONTACT MESSAGE*%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Message:* ${formData.message}`;
-    window.open(`https://wa.me/919840052675?text=${text}`, '_blank');
+    try {
+      fetch('https://formsubmit.co/ajax/mentorixacademy.ma@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `📬 New Message from ${formData.name}`,
+          Name: formData.name,
+          Phone: formData.phone,
+          Message: formData.message
+        })
+      }).catch((err) => console.log('Email delivery:', err));
+    } catch (err) {}
+
+    const message = `*NEW CONTACT MESSAGE*\n` +
+      `------------------------------------\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Message:* ${formData.message}`;
+    window.open(`https://wa.me/918015573223?text=${encodeURIComponent(message)}`, '_blank');
     setSent(true);
   };
 
@@ -153,7 +170,7 @@ export default function GalleryContactSection({ lang }) {
                     <Phone size={18} />
                   </div>
                   <span style={{ fontSize: '0.96rem', fontWeight: 800, color: '#093f7c' }}>
-                    98400 52675
+                    80155 73223
                   </span>
                 </div>
 
@@ -171,7 +188,7 @@ export default function GalleryContactSection({ lang }) {
                     <Mail size={18} />
                   </div>
                   <span style={{ fontSize: '0.96rem', fontWeight: 800, color: '#093f7c' }}>
-                    jpgoodwilltuitions@gmail.com
+                    mentorixacademy.ma@gmail.com
                   </span>
                 </div>
 

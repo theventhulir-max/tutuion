@@ -1,5 +1,6 @@
 import React from 'react';
-import { Phone, MessageCircle, Sparkles } from 'lucide-react';
+import { Phone, Sparkles } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { tuitionData } from '../data/tuitionData';
 
 export default function FloatingActions({ lang, onOpenAdmission }) {
@@ -77,7 +78,7 @@ export default function FloatingActions({ lang, onOpenAdmission }) {
           }}
           title="Chat on WhatsApp"
         >
-          <MessageCircle size={28} />
+          <WhatsAppIcon size={28} />
         </a>
       </div>
     </>

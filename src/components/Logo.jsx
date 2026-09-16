@@ -27,19 +27,19 @@ export default function Logo({ size = 52, showText = true, isWhite = false }) {
               fontFamily: 'var(--font-heading)',
               fontWeight: 900,
               letterSpacing: '-0.02em',
-              color: isWhite ? '#ffffff' : '#093F7C',
+              color: isWhite ? '#ffffff' : 'var(--primary-navy)',
               lineHeight: 1.1
             }} className="brand-name-title">
               JP GOODWILL
             </span>
             <span style={{
               fontSize: '0.62rem',
-              background: isWhite ? 'rgba(251, 191, 36, 0.2)' : '#FEF3C7',
-              color: isWhite ? '#FDE047' : '#92400E',
+              background: isWhite ? 'rgba(251, 191, 36, 0.2)' : 'var(--accent-gold-light)',
+              color: isWhite ? '#FDE047' : 'var(--accent-gold)',
               padding: '1px 6px',
               borderRadius: '4px',
               fontWeight: 800,
-              border: isWhite ? '1px solid rgba(251, 191, 36, 0.4)' : '1px solid #FDE68A',
+              border: isWhite ? '1px solid rgba(251, 191, 36, 0.4)' : '1px solid rgba(245, 158, 11, 0.3)',
               letterSpacing: '0.02em'
             }} className="brand-estd-badge">
               ESTD 2013
@@ -47,7 +47,7 @@ export default function Logo({ size = 52, showText = true, isWhite = false }) {
           </div>
           <div style={{
             fontWeight: 800,
-            color: isWhite ? '#34D399' : '#00875A',
+            color: isWhite ? '#34D399' : 'var(--accent-green)',
             letterSpacing: '0.04em',
             marginTop: '2px'
           }} className="brand-subtitle">
@@ -62,24 +62,41 @@ export default function Logo({ size = 52, showText = true, isWhite = false }) {
           height: ${size}px;
         }
         .brand-name-title {
-          font-size: 1.38rem;
+          font-size: 1.22rem;
         }
         .brand-subtitle {
-          font-size: 0.80rem;
+          font-size: 0.70rem;
+        }
+        @media (max-width: 1250px) {
+          .brand-estd-badge {
+            display: none !important;
+          }
         }
         @media (max-width: 600px) {
           .brand-logo-img {
-            width: 38px !important;
-            height: 38px !important;
+            width: 36px !important;
+            height: 36px !important;
           }
           .brand-name-title {
-            font-size: 1.08rem !important;
+            font-size: 1.05rem !important;
           }
           .brand-subtitle {
-            font-size: 0.65rem !important;
+            font-size: 0.62rem !important;
           }
           .brand-estd-badge {
             display: none !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .brand-logo-img {
+            width: 32px !important;
+            height: 32px !important;
+          }
+          .brand-name-title {
+            font-size: 0.95rem !important;
+          }
+          .brand-subtitle {
+            font-size: 0.58rem !important;
           }
         }
       `}</style>

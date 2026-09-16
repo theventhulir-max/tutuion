@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Calculator, CheckCircle2, Sparkles, BookOpen, Clock, Calendar, ArrowRight, MessageCircle } from 'lucide-react';
+import { Calculator, CheckCircle2, Sparkles, BookOpen, Clock, Calendar, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { tuitionData } from '../data/tuitionData';
 
 export default function CourseFinder({ lang, onOpenAdmission }) {
@@ -320,7 +321,7 @@ export default function CourseFinder({ lang, onOpenAdmission }) {
                   className="btn-emerald"
                   style={{ padding: '10px 20px', fontSize: '0.88rem' }}
                 >
-                  <MessageCircle size={16} />
+                  <WhatsAppIcon size={16} />
                   <span>Get Fee & Timings on WhatsApp</span>
                 </button>
 

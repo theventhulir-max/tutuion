@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Sparkles, Menu, X } from 'lucide-react';
+import { Sparkles, Menu, X, Palette } from 'lucide-react';
 import Logo from './Logo';
 import { tuitionData } from '../data/tuitionData';
 
-export default function Header({ lang, setLang, onOpenAdmission }) {
+export default function Header({ lang, setLang, theme = 'royal-blue', setTheme, onOpenAdmission }) {
   const [activeTab, setActiveTab] = useState('Home');
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -17,6 +17,20 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
     { name: 'Contact', href: '#contact', label: { en: 'Contact', ta: 'தொடர்பு' } },
   ];
 
+  const cycleTheme = () => {
+    if (!setTheme) return;
+    const themes = ['royal-blue', 'emerald-lime'];
+    const nextIdx = (themes.indexOf(theme) + 1) % themes.length;
+    setTheme(themes[nextIdx]);
+  };
+
+  const getThemeShortName = () => {
+    if (theme === 'emerald-lime' || theme === 'emerald-coral') {
+      return lang === 'ta' ? 'எமரால்டு' : 'Emerald';
+    }
+    return lang === 'ta' ? 'ராயல் நீலம்' : 'Primary';
+  };
+
   return (
     <header style={{
       position: 'sticky',
@@ -26,14 +40,8 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
       boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
       borderBottom: '1px solid #eef2f6'
     }}>
-      {/* Main Navbar with Clean & Spacious Layout */}
-      <div className="container" style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '10px 16px',
-        gap: '12px'
-      }}>
+      {/* Main Navbar with Wide & Responsive Layout */}
+      <div className="header-inner-container">
         
         {/* Brand Logo & Name */}
         <a href="#home" style={{ textDecoration: 'none', flexShrink: 0 }}>
@@ -44,7 +52,7 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
         <nav style={{
           display: 'none',
           alignItems: 'center',
-          gap: 'clamp(6px, 1.2vw, 16px)',
+          gap: 'clamp(2px, 0.6vw, 10px)',
           flexWrap: 'nowrap'
         }} className="desktop-clean-nav">
           {navLinks.map((link) => {
@@ -55,19 +63,19 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
                 href={link.href}
                 onClick={() => setActiveTab(link.name)}
                 style={{
-                  fontSize: '0.86rem',
+                  fontSize: 'clamp(0.76rem, 0.82vw, 0.84rem)',
                   fontWeight: 700,
-                  color: isActive ? '#0056b3' : '#334155',
+                  color: isActive ? 'var(--primary-blue)' : '#334155',
                   textDecoration: 'none',
-                  padding: '5px 4px',
+                  padding: '4px clamp(2px, 0.4vw, 5px)',
                   position: 'relative',
                   transition: 'all 0.2s ease',
-                  borderBottom: isActive ? '2.5px solid #0056b3' : '2.5px solid transparent',
+                  borderBottom: isActive ? '2.5px solid var(--primary-blue)' : '2.5px solid transparent',
                   whiteSpace: 'nowrap',
                   flexShrink: 0
                 }}
                 onMouseEnter={(e) => {
-                  if (!isActive) e.target.style.color = '#0056b3';
+                  if (!isActive) e.target.style.color = 'var(--primary-blue)';
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive) e.target.style.color = '#334155';
@@ -79,25 +87,50 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
           })}
         </nav>
 
-        {/* Right: Language Switcher (EN / தமிழ்) & Apply Now & Mobile Menu */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+        {/* Right: Theme Switcher & Language Switcher & Apply Now & Mobile Menu */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
           
+          {/* Quick Theme Cycle Button (Icon Button - Desktop Only) */}
+          <button
+            onClick={cycleTheme}
+            className="header-theme-cycle-btn"
+            style={{
+              display: 'none',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '32px',
+              height: '32px',
+              background: '#f1f5f9',
+              borderRadius: '50%',
+              border: '1px solid #e2e8f0',
+              cursor: 'pointer',
+              color: 'var(--primary-blue)',
+              transition: 'all 0.2s ease',
+              flexShrink: 0
+            }}
+            title={lang === 'ta' ? `வண்ண தீம் (${getThemeShortName()})` : `Switch Theme (${getThemeShortName()})`}
+            aria-label="Toggle Theme"
+          >
+            <Palette size={15} />
+          </button>
+
           {/* Compact Language Toggle (Only EN and தமிழ்) */}
           <div style={{
             display: 'flex',
             background: '#f1f5f9',
             padding: '2px',
             borderRadius: '999px',
-            border: '1px solid #e2e8f0'
+            border: '1px solid #e2e8f0',
+            flexShrink: 0
           }}>
             <button
               onClick={() => setLang('en')}
               style={{
-                padding: '3px 8px',
+                padding: '3px 7px',
                 borderRadius: '999px',
-                fontSize: '0.72rem',
+                fontSize: '0.70rem',
                 fontWeight: 800,
-                background: lang === 'en' ? '#093f7c' : 'transparent',
+                background: lang === 'en' ? 'var(--primary-navy)' : 'transparent',
                 color: lang === 'en' ? '#ffffff' : '#64748b',
                 border: 'none',
                 cursor: 'pointer'
@@ -108,11 +141,11 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
             <button
               onClick={() => setLang('ta')}
               style={{
-                padding: '3px 8px',
+                padding: '3px 7px',
                 borderRadius: '999px',
-                fontSize: '0.72rem',
+                fontSize: '0.70rem',
                 fontWeight: 800,
-                background: lang === 'ta' ? '#00875a' : 'transparent',
+                background: lang === 'ta' ? 'var(--accent-green)' : 'transparent',
                 color: lang === 'ta' ? '#ffffff' : '#64748b',
                 border: 'none',
                 cursor: 'pointer'
@@ -122,27 +155,28 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
             </button>
           </div>
 
-          {/* Apply Now Pill Button */}
+          {/* Apply Now Pill Button (Desktop Only) */}
           <button
             onClick={onOpenAdmission}
             className="desktop-apply-btn"
             style={{
-              background: '#0052cc',
+              background: 'var(--primary-navy)',
               color: '#ffffff',
-              padding: '7px 14px',
+              padding: '6px 12px',
               borderRadius: '999px',
-              fontSize: '0.82rem',
+              fontSize: '0.80rem',
               fontWeight: 800,
-              display: 'inline-flex',
+              display: 'none',
               alignItems: 'center',
-              gap: '5px',
-              boxShadow: '0 4px 10px rgba(0, 82, 204, 0.25)',
+              gap: '4px',
+              boxShadow: '0 4px 10px var(--theme-glow)',
               border: 'none',
               cursor: 'pointer',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              flexShrink: 0
             }}
           >
-            <Sparkles size={13} style={{ color: '#fbbf24' }} />
+            <Sparkles size={12} style={{ color: '#fbbf24' }} />
             <span>{lang === 'ta' ? 'சேர்க்கை' : 'Apply Now'}</span>
           </button>
 
@@ -193,7 +227,7 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
               style={{
                 fontSize: '1rem',
                 fontWeight: 700,
-                color: activeTab === link.name ? '#0056b3' : '#1e293b',
+                color: activeTab === link.name ? 'var(--primary-blue)' : '#1e293b',
                 padding: '8px 0',
                 textDecoration: 'none',
                 borderBottom: '1px solid #f1f5f9'
@@ -203,13 +237,45 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
             </a>
           ))}
           
+          {/* Quick Theme Change in Drawer */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '10px 0',
+            borderBottom: '1px solid #f1f5f9'
+          }}>
+            <span style={{ fontSize: '0.92rem', fontWeight: 700, color: '#334155' }}>
+              {lang === 'ta' ? 'வண்ண தீம்' : 'Color Theme'}
+            </span>
+            <button
+              onClick={cycleTheme}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                background: '#f1f5f9',
+                padding: '6px 12px',
+                borderRadius: '999px',
+                border: '1px solid #cbd5e1',
+                cursor: 'pointer',
+                fontSize: '0.80rem',
+                fontWeight: 800,
+                color: 'var(--primary-navy)'
+              }}
+            >
+              <Palette size={14} style={{ color: 'var(--primary-blue)' }} />
+              <span>{getThemeShortName()}</span>
+            </button>
+          </div>
+
           <button
             onClick={() => {
               setMobileOpen(false);
               onOpenAdmission();
             }}
             style={{
-              background: '#0052cc',
+              background: 'var(--primary-navy)',
               color: '#ffffff',
               padding: '12px',
               borderRadius: '999px',
@@ -220,7 +286,8 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
               justifyContent: 'center',
               gap: '6px',
               border: 'none',
-              marginTop: '6px'
+              marginTop: '6px',
+              boxShadow: '0 4px 12px var(--theme-glow)'
             }}
           >
             <Sparkles size={16} style={{ color: '#fbbf24' }} />
@@ -230,26 +297,52 @@ export default function Header({ lang, setLang, onOpenAdmission }) {
       )}
 
       <style>{`
-        @media (min-width: 1040px) {
+        .header-inner-container {
+          max-width: 1380px;
+          width: 100%;
+          margin: 0 auto;
+          padding: 8px 16px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-sizing: border-box;
+          gap: 10px;
+        }
+
+        @media (min-width: 1120px) {
           .desktop-clean-nav {
             display: flex !important;
           }
           .desktop-apply-btn {
             display: inline-flex !important;
           }
+          .header-theme-cycle-btn {
+            display: inline-flex !important;
+          }
           .mobile-clean-menu-btn {
             display: none !important;
           }
         }
-        @media (max-width: 1039px) {
+
+        @media (max-width: 1119px) {
           .desktop-clean-nav {
             display: none !important;
           }
           .desktop-apply-btn {
             display: none !important;
           }
+          .header-theme-cycle-btn {
+            display: none !important;
+          }
           .mobile-clean-menu-btn {
             display: flex !important;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .header-inner-container {
+            padding: 8px 10px !important;
+            gap: 6px !important;
           }
         }
       `}</style>

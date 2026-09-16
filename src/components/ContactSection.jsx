@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, ArrowRight, MessageCircle, Clock, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, ArrowRight, Clock, CheckCircle2 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { tuitionData } from '../data/tuitionData';
 
 export default function ContactSection({ lang = 'ta' }) {
@@ -14,26 +15,56 @@ export default function ContactSection({ lang = 'ta' }) {
 
   const handleSend = (e) => {
     e.preventDefault();
-    const text = `📬 *NEW ADMISSION / CONTACT ENQUIRY*%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Branch:* ${formData.branch}%0A*Course:* ${formData.course || 'Not Specified'}%0A*Message:* ${formData.message || 'Admission enquiry'}`;
-    window.open(`https://wa.me/919840052675?text=${text}`, '_blank');
+    // 1. Send Email Notification directly to mentorixacademy.ma@gmail.com
+    try {
+      fetch(`https://formsubmit.co/ajax/${tuitionData.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `📬 New Contact / Admission Message from ${formData.name}`,
+          'Contact Name': formData.name,
+          'Phone Number': formData.phone,
+          'Branch Preference': formData.branch,
+          'Course / Subject': formData.course || 'Not Specified',
+          'Message / Query': formData.message || 'General enquiry',
+          '_template': 'table'
+        })
+      }).catch((err) => console.log('Email delivery:', err));
+    } catch (err) {
+      console.log('Contact form email notice:', err);
+    }
+
+    const message = `*NEW ADMISSION / CONTACT ENQUIRY*\n` +
+      `------------------------------------\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Branch:* ${formData.branch}\n` +
+      `*Course:* ${formData.course || 'Not Specified'}\n` +
+      `*Message:* ${formData.message || 'Admission enquiry'}`;
+
+    window.open(`https://wa.me/${tuitionData.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
     setSent(true);
   };
 
   return (
     <section id="contact" style={{
-      background: '#ffffff',
-      padding: '85px 0 90px 0',
-      borderTop: '1px solid #e2e8f0',
+      background: 'var(--section-alt-bg)',
+      padding: '55px 0 60px 0',
+      borderTop: '1px solid var(--section-alt-border)',
+      borderBottom: '1px solid var(--section-alt-border)',
       position: 'relative'
     }}>
       <div className="container">
         
         {/* Main Card Container */}
         <div style={{
-          background: 'linear-gradient(135deg, #093f7c 0%, #0056b3 100%)',
+          background: 'var(--theme-gradient)',
           borderRadius: '28px',
           padding: '48px 40px',
-          boxShadow: '0 15px 40px rgba(9, 63, 124, 0.2)',
+          boxShadow: '0 15px 40px var(--theme-glow)',
           color: '#ffffff',
           position: 'relative',
           overflow: 'hidden'
@@ -111,7 +142,7 @@ export default function ContactSection({ lang = 'ta' }) {
                 
                 {/* Phone */}
                 <a
-                  href="tel:9840052675"
+                  href={`tel:${tuitionData.phones[0]}`}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -146,14 +177,14 @@ export default function ContactSection({ lang = 'ta' }) {
                       {lang === 'ta' ? 'அழைப்பு & ஆலோசனை' : 'Direct Call & Counselling'}
                     </div>
                     <div style={{ fontSize: '1.05rem', fontWeight: 900 }}>
-                      98400 52675 / 82480 06633
+                      {tuitionData.displayPhones.join(' / ')}
                     </div>
                   </div>
                 </a>
 
                 {/* WhatsApp */}
                 <a
-                  href="https://wa.me/919840052675?text=Hi%20JP%20Goodwill%20Tuition%20Centre,%20I%20want%20to%20know%20about%20admissions."
+                  href={`https://wa.me/${tuitionData.whatsappNumber}?text=Hi%20JP%20Goodwill%20Tuition%20Centre,%20I%20want%20to%20know%20about%20admissions.`}
                   target="_blank"
                   rel="noreferrer"
                   style={{
@@ -183,14 +214,14 @@ export default function ContactSection({ lang = 'ta' }) {
                     justifyContent: 'center',
                     flexShrink: 0
                   }}>
-                    <MessageCircle size={19} />
+                    <WhatsAppIcon size={20} />
                   </div>
                   <div>
                     <div style={{ fontSize: '0.74rem', color: '#bae6fd', fontWeight: 700 }}>
                       {lang === 'ta' ? 'உடனடி வாட்ஸ்அப் உதவி' : 'Instant WhatsApp Help'}
                     </div>
                     <div style={{ fontSize: '1.05rem', fontWeight: 900 }}>
-                      98400 52675
+                      {tuitionData.displayPhones[0]}
                     </div>
                   </div>
                 </a>
@@ -309,7 +340,7 @@ export default function ContactSection({ lang = 'ta' }) {
                     <input
                       type="tel"
                       required
-                      placeholder="98400 52675"
+                      placeholder="80155 73223"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       style={{

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Users, Home, FileText, UserCheck, GraduationCap, Phone, MessageCircle, ArrowRight } from 'lucide-react';
+import { Users, Home, FileText, UserCheck, GraduationCap, Phone, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function Hero({ lang, onOpenAdmission }) {
   return (
@@ -22,19 +23,56 @@ export default function Hero({ lang, onOpenAdmission }) {
           {/* Top Headline Box (Full Width & Perfectly Centered on Mobile with Top Gap) */}
           <div className="hero-headline-center-box">
             
-            {/* Tagline with Clean High-Contrast Color (No underline) */}
-            <div style={{ marginBottom: '8px' }}>
+            {/* Tagline with Artistic Golden Highlight Underline */}
+            <div style={{ marginBottom: '10px' }}>
               <span
                 className={lang === 'ta' ? 'hero-tagline-ta' : 'font-script hero-tagline-en'}
                 style={{
                   fontWeight: 800,
                   color: '#c2410c',
                   display: 'inline-block',
-                  lineHeight: 1.25,
-                  textShadow: '0 1px 2px rgba(255, 255, 255, 0.8)'
+                  position: 'relative',
+                  lineHeight: 1.35,
+                  isolation: 'isolate',
+                  padding: '2px 4px',
+                  textShadow: '0 1px 2px rgba(255, 255, 255, 0.95)'
                 }}
               >
-                {lang === 'ta' ? 'உங்கள் எதிர்காலத்தை பிரகாசமாக்குங்கள்' : 'Build Your Future With'}
+                <span style={{ position: 'relative', zIndex: 2 }}>
+                  {lang === 'ta' ? 'உங்கள் எதிர்காலத்தை பிரகாசமாக்குங்கள்' : 'Build Your Future With'}
+                </span>
+                
+                {/* Smooth Marker Brush Stroke Underline */}
+                <svg
+                  className="hero-tagline-brush"
+                  viewBox="0 0 320 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                  style={{
+                    position: 'absolute',
+                    bottom: '-4px',
+                    left: 0,
+                    width: '100%',
+                    height: '11px',
+                    zIndex: 1,
+                    pointerEvents: 'none'
+                  }}
+                >
+                  {/* Soft Background Highlighter Layer */}
+                  <path
+                    d="M2 13C60 4 160 3 318 8C265 14.5 140 16.5 2 13Z"
+                    fill="#FEF08A"
+                    opacity="0.92"
+                  />
+                  {/* Vibrant Core Brush Stroke */}
+                  <path
+                    d="M8 9.5C80 4.5 195 4 312 8.5"
+                    stroke="#FACC15"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </span>
             </div>
 
@@ -42,33 +80,37 @@ export default function Hero({ lang, onOpenAdmission }) {
             <h1 className="hero-main-h1" style={{
               fontWeight: 900,
               fontFamily: 'var(--font-heading)',
-              color: '#093f7c',
+              color: 'var(--primary-navy)',
               lineHeight: 1.15,
               letterSpacing: '-0.025em',
-              margin: '0 0 20px 0'
+              margin: '0 0 20px 0',
+              textShadow: '0 2px 4px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.85)'
             }}>
               {lang === 'ta' ? (
                 <>
-                  <span className="hero-h1-line hero-h1-line-1" style={{ display: 'block', whiteSpace: 'nowrap' }}>
+                  <span className="hero-h1-line hero-h1-line-1" style={{ display: 'block', color: 'var(--primary-navy)' }}>
                     மாணவர்களின்
                   </span>
-                  <span className="hero-h1-line hero-h1-line-2" style={{ display: 'block', whiteSpace: 'nowrap', color: '#00875a' }}>
+                  <span className="hero-h1-line hero-h1-line-2" style={{ display: 'block', color: 'var(--accent-green)', textShadow: '0 2px 4px rgba(255, 255, 255, 0.95), 0 0 12px rgba(255, 255, 255, 0.85)' }}>
                     கல்வி மேன்மைக்கும்
                   </span>
-                  <span className="hero-h1-line hero-h1-line-3" style={{ display: 'block', whiteSpace: 'nowrap', marginTop: '4px' }}>
+                  <span className="hero-h1-line hero-h1-line-3" style={{ display: 'block', marginTop: '4px', color: 'var(--primary-navy)' }}>
                     100% தேர்ச்சிக்கும்
                   </span>
-                  <span className="hero-h1-line hero-h1-line-4" style={{ display: 'block', whiteSpace: 'nowrap' }}>
+                  <span className="hero-h1-line hero-h1-line-4" style={{ display: 'block', color: 'var(--primary-navy)' }}>
                     முழு வழிகாட்டல்!
                   </span>
                 </>
               ) : (
                 <>
-                  <span className="hero-h1-line hero-h1-line-1" style={{ display: 'block', whiteSpace: 'nowrap' }}>
+                  <span className="hero-h1-line hero-h1-line-1" style={{ display: 'block', color: 'var(--primary-navy)' }}>
                     Empowering Students with
                   </span>
-                  <span className="hero-h1-line hero-h1-line-2" style={{ display: 'block', whiteSpace: 'nowrap' }}>
-                    <span style={{ color: '#00875a' }}>Academic Excellence</span> & Top Scores!
+                  <span className="hero-h1-line hero-h1-line-2" style={{ display: 'block', color: 'var(--accent-green)', textShadow: '0 2px 4px rgba(255, 255, 255, 0.95), 0 0 12px rgba(255, 255, 255, 0.85)' }}>
+                    Academic Excellence
+                  </span>
+                  <span className="hero-h1-line hero-h1-line-3" style={{ display: 'block', color: 'var(--primary-navy)' }}>
+                    & Top Scores!
                   </span>
                 </>
               )}
@@ -80,10 +122,11 @@ export default function Hero({ lang, onOpenAdmission }) {
           <div className="hero-mid-left-box">
             {/* Subtitle Paragraph */}
             <p className="hero-subtitle" style={{
-              color: '#1e293b',
+              color: '#102A43',
               lineHeight: 1.55,
               margin: '0 0 16px 0',
-              fontWeight: 700
+              fontWeight: 700,
+              textShadow: '0 1px 2px rgba(255, 255, 255, 0.9)'
             }}>
               {lang === 'ta'
                 ? '6 முதல் 12ம் வகுப்பு வரை (State Board & CBSE), அண்ணா பல்கலைக்கழக பொறியியல் கணிதம் (M1, M2), பாலிடெக்னிக் & டிகிரி கணிதத்திற்கான முதன்மை பயிற்சி மையம் - கொருக்குப்பேட்டை & தண்டையார்பேட்டை.'
@@ -154,10 +197,10 @@ export default function Hero({ lang, onOpenAdmission }) {
             {/* Primary Enroll Button */}
             <button
               onClick={onOpenAdmission}
-              className="hero-enroll-btn"
+              className="hero-enroll-btn shimmer-btn"
               style={{
                 width: '100%',
-                background: '#093f7c',
+                background: 'var(--theme-gradient)',
                 color: '#ffffff',
                 borderRadius: '999px',
                 fontWeight: 900,
@@ -165,13 +208,19 @@ export default function Hero({ lang, onOpenAdmission }) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '10px',
-                boxShadow: '0 6px 18px rgba(9, 63, 124, 0.28)',
+                boxShadow: '0 6px 18px var(--theme-glow)',
                 cursor: 'pointer',
                 border: 'none',
-                transition: 'all 0.2s ease'
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+              onMouseEnter={(e) => { 
+                e.currentTarget.style.transform = 'translateY(-3px)'; 
+                e.currentTarget.style.boxShadow = '0 10px 24px var(--theme-glow)';
+              }}
+              onMouseLeave={(e) => { 
+                e.currentTarget.style.transform = 'translateY(0)'; 
+                e.currentTarget.style.boxShadow = '0 6px 18px var(--theme-glow)';
+              }}
             >
               <GraduationCap size={20} />
               <span>{lang === 'ta' ? '2025–26 புதிய வகுப்பில் சேரவும்' : 'Enroll for Batch 2025–26'}</span>
@@ -187,7 +236,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             }}>
               {/* Call Button */}
               <a
-                href="tel:9840052675"
+                href="tel:8015573223"
                 className="hero-call-btn"
                 style={{
                   display: 'flex',
@@ -195,17 +244,19 @@ export default function Hero({ lang, onOpenAdmission }) {
                   justifyContent: 'center',
                   gap: '6px',
                   background: '#ffffff',
-                  color: '#0056b3',
-                  border: '2px solid #0056b3',
+                  color: 'var(--primary-blue)',
+                  border: '2px solid var(--primary-blue)',
                   borderRadius: '999px',
+                  padding: '11px 16px',
                   fontWeight: 900,
+                  fontSize: '0.90rem',
                   textDecoration: 'none',
                   boxShadow: '0 4px 10px rgba(0, 86, 179, 0.1)',
                   transition: 'all 0.2s ease',
                   whiteSpace: 'nowrap'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = '#f0f7ff';
+                  e.currentTarget.style.background = 'var(--primary-light-blue)';
                   e.currentTarget.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={(e) => {
@@ -214,39 +265,41 @@ export default function Hero({ lang, onOpenAdmission }) {
                 }}
               >
                 <Phone size={15} style={{ flexShrink: 0 }} />
-                <span style={{ whiteSpace: 'nowrap' }}>98400 52675</span>
+                <span style={{ whiteSpace: 'nowrap' }}>80155 73223</span>
               </a>
 
-              {/* WhatsApp Button */}
+              {/* WhatsApp Button - Perfectly Centered */}
               <a
-                href="https://wa.me/919840052675?text=Hi%20JP%20Goodwill%20Tuition%20Centre,%20I%20want%20to%20know%20about%20admissions."
+                href="https://wa.me/918015573223?text=Hello%20JP%20Goodwill%20Tuition%20Centre,%20I%20want%20to%20enquire%20about%20admissions"
                 target="_blank"
                 rel="noreferrer"
-                className="hero-wa-btn"
+                className="hero-btn-wa"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '6px',
-                  background: '#00875a',
+                  background: '#25D366',
                   color: '#ffffff',
+                  padding: '11px 16px',
                   borderRadius: '999px',
                   fontWeight: 900,
+                  fontSize: '0.90rem',
                   textDecoration: 'none',
-                  boxShadow: '0 4px 12px rgba(0, 135, 90, 0.25)',
-                  transition: 'all 0.2s ease',
+                  boxShadow: '0 4px 12px rgba(37, 211, 102, 0.35)',
+                  transition: 'all 0.25s ease',
                   whiteSpace: 'nowrap'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 8px 18px rgba(0, 135, 90, 0.35)';
+                  e.currentTarget.style.boxShadow = '0 8px 18px rgba(37, 211, 102, 0.45)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 135, 90, 0.25)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.35)';
                 }}
               >
-                <MessageCircle size={16} style={{ flexShrink: 0 }} />
+                <WhatsAppIcon size={17} style={{ flexShrink: 0 }} />
                 <span style={{ whiteSpace: 'nowrap' }}>WhatsApp</span>
               </a>
             </div>
@@ -260,7 +313,7 @@ export default function Hero({ lang, onOpenAdmission }) {
       <style>{`
         /* Desktop View */
         .hero-section-custom {
-          background-image: url('/images/hero_bg_desktop.png');
+          background-image: url('/images/home_bg.jpg');
           background-size: cover;
           background-position: center right;
           background-repeat: no-repeat;
@@ -270,11 +323,38 @@ export default function Hero({ lang, onOpenAdmission }) {
           padding: 38px 24px;
         }
         .hero-left-content {
+          position: relative;
+          z-index: 2;
           max-width: 780px;
           width: 65%;
         }
-        .hero-tagline-en {
+        .hero-left-content::before {
+          content: "";
+          position: absolute;
+          left: -40px;
+          top: -30px;
+          width: 120%;
+          max-width: 740px;
+          height: calc(100% + 60px);
+          background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.92) 0%,
+            rgba(255, 255, 255, 0.80) 45%,
+            rgba(255, 255, 255, 0.40) 75%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          border-radius: 24px;
+          z-index: -1;
+          pointer-events: none;
+        }
+        /* Hero Entrance Keyframe Cascade */
+        .hero-headline-center-box {
+          animation: fadeInDown 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+        }
+        .hero-tagline-en, .hero-tagline-ta {
           font-size: 1.85rem;
+          color: #E85D04;
+          text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.8);
         }
         .hero-tagline-ta {
           font-size: 1.35rem;
@@ -284,16 +364,23 @@ export default function Hero({ lang, onOpenAdmission }) {
         .hero-main-h1 {
           font-size: clamp(2.55rem, 3.8vw, 3.4rem);
           line-height: 1.15;
+          color: #003B73;
+          text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.85);
+          animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
         }
         .hero-h1-line, .hero-h1-line-1, .hero-h1-line-2, .hero-h1-line-3, .hero-h1-line-4 {
           white-space: nowrap !important;
           display: block !important;
         }
+        .hero-mid-left-box {
+          animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+        }
         .hero-subtitle {
           font-size: 0.96rem;
           max-width: 520px;
           font-weight: 700;
-          color: #1e293b;
+          color: #102A43 !important;
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
         }
         
         /* 4 Badges in 1 Single Row on Desktop with Centered Icons */
@@ -310,6 +397,10 @@ export default function Hero({ lang, onOpenAdmission }) {
           align-items: center;
           text-align: center;
           gap: 8px;
+          transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hero-badge-col:hover {
+          transform: translateY(-4px);
         }
         .hero-badge-icon {
           width: 46px;
@@ -320,17 +411,22 @@ export default function Hero({ lang, onOpenAdmission }) {
           justify-content: center;
           margin: 0 auto;
           flex-shrink: 0;
-          transition: transform 0.2s ease;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
         }
         .hero-badge-col:hover .hero-badge-icon {
-          transform: translateY(-2px);
+          transform: scale(1.1) translateY(-2px);
         }
         .hero-badge-text {
           font-size: 0.76rem;
           font-weight: 800;
-          color: #093f7c;
+          color: #003B73;
           line-height: 1.3;
           text-align: center;
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+          transition: color 0.2s ease;
+        }
+        .hero-badge-col:hover .hero-badge-text {
+          color: #0056b3;
         }
 
         .hero-actions-container {
@@ -338,6 +434,7 @@ export default function Hero({ lang, onOpenAdmission }) {
           flex-direction: column;
           gap: 12px;
           max-width: 480px;
+          animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both;
         }
         .hero-enroll-btn {
           padding: 13px 22px;
@@ -351,24 +448,22 @@ export default function Hero({ lang, onOpenAdmission }) {
         /* Mobile View (max-width: 959px) */
         @media (max-width: 959px) {
           .hero-section-custom {
-            background-image: url('/images/hero_bg_mobile.png');
+            background-image: url('/images/home_bg_mobile.png');
             background-size: cover;
             background-position: top center;
             background-repeat: no-repeat;
-            min-height: calc(100dvh - 65px) !important;
+            min-height: auto !important;
             height: auto !important;
-            padding: 16px 0 24px 0 !important;
+            padding: 14px 0 28px 0 !important;
             display: flex !important;
             flex-direction: column !important;
-            justify-content: space-between !important;
             box-sizing: border-box !important;
           }
           .hero-inner-container {
-            padding: 16px 16px 16px 16px !important;
+            padding: 12px 16px 20px 16px !important;
             display: flex !important;
             flex-direction: column !important;
-            justify-content: space-between !important;
-            height: 100% !important;
+            height: auto !important;
             flex: 1 !important;
           }
           .hero-left-content {
@@ -376,46 +471,57 @@ export default function Hero({ lang, onOpenAdmission }) {
             max-width: 100% !important;
             display: flex !important;
             flex-direction: column !important;
-            justify-content: space-between !important;
-            height: 100% !important;
+            height: auto !important;
             flex: 1 !important;
+          }
+          .hero-left-content::before {
+            display: none !important;
           }
           
           /* ONLY THIS HEADLINE & TAGLINE IS FULL-WIDTH CENTERED ON MOBILE */
           .hero-headline-center-box {
             width: 100% !important;
             max-width: 100% !important;
-            margin: 16px auto 26px auto !important;
+            margin: 10px auto 20px auto !important;
             text-align: center !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.75) 55%, rgba(255, 255, 255, 0) 100%) !important;
+            padding: 6px 12px 12px 12px !important;
+            border-radius: 20px !important;
           }
           .hero-tagline-en {
-            font-size: 1.6rem !important;
-            line-height: 1.2 !important;
-            text-align: center !important;
-            display: block !important;
-            margin: 0 auto 6px auto !important;
-          }
-          .hero-tagline-ta {
-            font-size: 1.2rem !important;
+            font-size: 1.5rem !important;
             line-height: 1.25 !important;
             text-align: center !important;
             display: block !important;
             margin: 0 auto 6px auto !important;
+            color: #E85D04 !important;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.8) !important;
+          }
+          .hero-tagline-ta {
+            font-size: 1.15rem !important;
+            line-height: 1.3 !important;
+            text-align: center !important;
+            display: block !important;
+            margin: 0 auto 6px auto !important;
+            color: #E85D04 !important;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95), 0 0 8px rgba(255, 255, 255, 0.8) !important;
           }
           .hero-main-h1 {
-            font-size: clamp(1.65rem, 6.8vw, 2.35rem) !important;
+            font-size: clamp(1.42rem, 5.8vw, 2.05rem) !important;
             font-weight: 900 !important;
-            line-height: 1.2 !important;
+            line-height: 1.22 !important;
             letter-spacing: -0.015em !important;
-            margin-bottom: 22px !important;
+            margin-bottom: 18px !important;
             text-align: center !important;
             width: 100% !important;
+            color: #003B73 !important;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.85) !important;
           }
           .hero-h1-line, .hero-h1-line-1, .hero-h1-line-2, .hero-h1-line-3, .hero-h1-line-4 {
-            white-space: nowrap !important;
+            white-space: normal !important;
             display: block !important;
             font-weight: 900 !important;
           }
@@ -425,15 +531,19 @@ export default function Hero({ lang, onOpenAdmission }) {
             max-width: 62% !important;
             width: 62% !important;
             align-self: flex-start !important;
-            margin-top: 24px !important;
+            margin-top: 16px !important;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.70) 75%, rgba(255, 255, 255, 0) 100%) !important;
+            padding: 8px 10px !important;
+            border-radius: 14px !important;
           }
           .hero-subtitle {
-            font-size: 0.86rem !important;
-            line-height: 1.48 !important;
-            margin-bottom: 16px !important;
-            color: #0f172a !important;
+            font-size: 0.84rem !important;
+            line-height: 1.45 !important;
+            margin-bottom: 14px !important;
+            color: #102A43 !important;
             font-weight: 700 !important;
             text-align: left !important;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9) !important;
           }
           
           /* 2x2 grid on mobile within left 60% */
@@ -443,7 +553,7 @@ export default function Hero({ lang, onOpenAdmission }) {
             gap: 12px 10px !important;
             width: 100% !important;
             max-width: 100% !important;
-            margin-bottom: 20px !important;
+            margin-bottom: 18px !important;
           }
           .hero-badge-col {
             align-items: flex-start !important;
@@ -464,10 +574,12 @@ export default function Hero({ lang, onOpenAdmission }) {
             height: 18px !important;
           }
           .hero-badge-text {
-            font-size: 0.74rem !important;
+            font-size: 0.72rem !important;
             line-height: 1.25 !important;
             font-weight: 800 !important;
             text-align: left !important;
+            color: #003B73 !important;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85) !important;
           }
           
           .hero-actions-container {
@@ -475,18 +587,19 @@ export default function Hero({ lang, onOpenAdmission }) {
             flex-direction: column !important;
             width: 100% !important;
             max-width: 100% !important;
-            margin-top: auto !important;
+            margin-top: 14px !important;
             gap: 10px !important;
           }
           .hero-enroll-btn {
             width: 100% !important;
-            padding: 13px 18px !important;
-            font-size: 0.95rem !important;
+            padding: 12px 14px !important;
+            font-size: 0.90rem !important;
+            box-sizing: border-box !important;
           }
           .hero-call-btn, .hero-wa-btn {
             width: 100% !important;
-            padding: 11px 8px !important;
-            font-size: 0.85rem !important;
+            padding: 10px 8px !important;
+            font-size: 0.84rem !important;
             white-space: nowrap !important;
             gap: 6px !important;
             letter-spacing: -0.01em !important;
@@ -496,36 +609,36 @@ export default function Hero({ lang, onOpenAdmission }) {
 
         @media (max-width: 480px) {
           .hero-section-custom {
-            min-height: calc(100dvh - 60px) !important;
-            padding: 14px 0 20px 0 !important;
+            min-height: auto !important;
+            padding: 12px 0 24px 0 !important;
           }
           .hero-inner-container {
-            padding: 16px 14px 16px 14px !important;
+            padding: 10px 12px 18px 12px !important;
           }
           .hero-headline-center-box {
-            margin: 14px auto 24px auto !important;
+            margin: 8px auto 18px auto !important;
           }
           .hero-tagline-en {
-            font-size: 1.45rem !important;
+            font-size: 1.38rem !important;
           }
           .hero-tagline-ta {
-            font-size: 1.1rem !important;
+            font-size: 1.05rem !important;
           }
           .hero-main-h1 {
-            font-size: clamp(1.48rem, 6.4vw, 1.95rem) !important;
+            font-size: clamp(1.38rem, 6.2vw, 1.85rem) !important;
             font-weight: 900 !important;
             line-height: 1.22 !important;
             letter-spacing: -0.015em !important;
-            margin-bottom: 20px !important;
+            margin-bottom: 16px !important;
           }
           .hero-mid-left-box {
-            max-width: 62% !important;
-            width: 62% !important;
-            margin-top: 22px !important;
+            max-width: 64% !important;
+            width: 64% !important;
+            margin-top: 14px !important;
           }
           .hero-subtitle {
-            font-size: 0.83rem !important;
-            line-height: 1.45 !important;
+            font-size: 0.80rem !important;
+            line-height: 1.42 !important;
             text-align: left !important;
             font-weight: 700 !important;
             color: #0f172a !important;
@@ -541,12 +654,12 @@ export default function Hero({ lang, onOpenAdmission }) {
             margin: 0 !important;
           }
           .hero-badge-text {
-            font-size: 0.70rem !important;
+            font-size: 0.68rem !important;
             text-align: left !important;
           }
           .hero-call-btn, .hero-wa-btn {
-            font-size: 0.82rem !important;
-            padding: 10px 6px !important;
+            font-size: 0.80rem !important;
+            padding: 9px 4px !important;
           }
         }
       `}</style>

@@ -1,17 +1,19 @@
 import React from 'react';
-import { X, CheckCircle2, Clock, BookOpen, Sparkles, MessageCircle, ArrowRight } from 'lucide-react';
+import { X, CheckCircle2, Clock, BookOpen, Sparkles, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { tuitionData } from '../data/tuitionData';
 
 export default function CourseModal({ course, onClose, lang }) {
   if (!course) return null;
 
   const handleEnrollWhatsApp = () => {
-    const text = `🎓 *COURSE ENQUIRY - JP GOODWILL TUITION CENTRE*%0A` +
-      `*Course:* ${course.title}%0A` +
-      `*Category:* ${course.category}%0A` +
-      `*Duration:* ${course.duration}%0A` +
+    const message = `*COURSE ENQUIRY - JP GOODWILL TUITION CENTRE*\n` +
+      `------------------------------------\n` +
+      `*Course:* ${course.title}\n` +
+      `*Category:* ${course.category}\n` +
+      `*Duration:* ${course.duration}\n` +
       `Please provide batch timings, fees, and next starting date.`;
-    window.open(`https://wa.me/${tuitionData.whatsappNumber}?text=${text}`, '_blank');
+    window.open(`https://wa.me/${tuitionData.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
@@ -151,7 +153,7 @@ export default function CourseModal({ course, onClose, lang }) {
               className="btn-mockup-green"
               style={{ flex: 1, padding: '13px', justifyContent: 'center', fontSize: '0.94rem' }}
             >
-              <MessageCircle size={18} />
+              <WhatsAppIcon size={18} />
               <span>Get Fee Details on WhatsApp</span>
             </button>
             <a

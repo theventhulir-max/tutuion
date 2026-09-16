@@ -1,5 +1,6 @@
 import React from 'react';
-import { Phone, MessageCircle, Megaphone } from 'lucide-react';
+import { Phone, Megaphone } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { tuitionData } from '../data/tuitionData';
 
 export default function MobileBottomBar({ lang = 'ta', onOpenAdmission }) {
@@ -31,8 +32,8 @@ export default function MobileBottomBar({ lang = 'ta', onOpenAdmission }) {
             justifyContent: 'center',
             gap: '6px',
             background: '#ffffff',
-            color: '#093f7c',
-            border: '2px solid #0056b3',
+            color: 'var(--primary-navy)',
+            border: '2px solid var(--primary-blue)',
             borderRadius: '999px',
             padding: '11px 8px',
             fontSize: '0.86rem',
@@ -56,18 +57,18 @@ export default function MobileBottomBar({ lang = 'ta', onOpenAdmission }) {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '6px',
-            background: '#00875a',
+            background: '#25D366',
             color: '#ffffff',
             borderRadius: '999px',
             padding: '11px 8px',
             fontSize: '0.86rem',
             fontWeight: 900,
             textDecoration: 'none',
-            boxShadow: '0 4px 12px rgba(0, 135, 90, 0.25)',
+            boxShadow: '0 4px 12px rgba(37, 211, 102, 0.25)',
             whiteSpace: 'nowrap'
           }}
         >
-          <MessageCircle size={16} />
+          <WhatsAppIcon size={17} />
           <span>{lang === 'ta' ? 'வாட்ஸ்அப்' : 'WhatsApp'}</span>
         </a>
 
@@ -79,7 +80,7 @@ export default function MobileBottomBar({ lang = 'ta', onOpenAdmission }) {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '6px',
-            background: '#093f7c',
+            background: 'var(--primary-navy)',
             color: '#ffffff',
             borderRadius: '999px',
             padding: '11px 10px',
@@ -87,7 +88,7 @@ export default function MobileBottomBar({ lang = 'ta', onOpenAdmission }) {
             fontWeight: 900,
             border: 'none',
             cursor: 'pointer',
-            boxShadow: '0 4px 12px rgba(9, 63, 124, 0.25)',
+            boxShadow: '0 4px 12px var(--theme-glow)',
             whiteSpace: 'nowrap'
           }}
         >
