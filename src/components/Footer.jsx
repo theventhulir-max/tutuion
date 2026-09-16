@@ -225,9 +225,10 @@ export default function Footer({ lang = 'ta', onOpenAdmission }) {
 
             {/* Right Side: Map Header, Switcher Tabs & Embedded Google Map Card */}
             <div>
-              {/* Header & Active Branch Indicator */}
+              {/* Header & Interactive 2-Location Switcher Tabs */}
               <div style={{
                 display: 'flex',
+                flexWrap: 'wrap',
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 marginBottom: '12px',
@@ -238,26 +239,70 @@ export default function Footer({ lang = 'ta', onOpenAdmission }) {
                   <span>{lang === 'ta' ? 'கிளை இருப்பிடம் (Google Map)' : 'Campus Location Map'}</span>
                 </div>
 
+                {/* 2-Location Switcher Buttons */}
                 <div style={{
                   display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  background: 'var(--accent-green-light)',
-                  color: 'var(--accent-green)',
-                  padding: '4px 12px',
+                  background: '#f1f5f9',
+                  padding: '3px',
                   borderRadius: '999px',
-                  border: '1px solid var(--accent-green)',
-                  fontSize: '0.78rem',
-                  fontWeight: 800
+                  border: '1.5px solid #cbd5e1',
+                  gap: '3px'
                 }}>
-                  <span style={{
-                    width: '7px',
-                    height: '7px',
-                    borderRadius: '50%',
-                    background: '#22c55e',
-                    boxShadow: '0 0 0 2px rgba(34, 197, 94, 0.3)'
-                  }} />
-                  <span>{lang === 'ta' ? (selectedBranch === 'korukkupet' ? 'கொருக்குப்பேட்டை' : 'தண்டையார்பேட்டை') : (selectedBranch === 'korukkupet' ? 'Korukkupet Campus' : 'Tondiarpet Campus')}</span>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedBranch('korukkupet')}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      background: selectedBranch === 'korukkupet' ? '#00875a' : 'transparent',
+                      color: selectedBranch === 'korukkupet' ? '#ffffff' : '#334155',
+                      border: 'none',
+                      padding: '5px 12px',
+                      borderRadius: '999px',
+                      fontSize: '0.78rem',
+                      fontWeight: 800,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      boxShadow: selectedBranch === 'korukkupet' ? '0 2px 8px rgba(0, 135, 90, 0.3)' : 'none'
+                    }}
+                  >
+                    <span style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: selectedBranch === 'korukkupet' ? '#ffffff' : '#94a3b8'
+                    }} />
+                    <span>{lang === 'ta' ? 'கொருக்குப்பேட்டை' : 'Korukkupet'}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setSelectedBranch('tondiarpet')}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      background: selectedBranch === 'tondiarpet' ? '#00875a' : 'transparent',
+                      color: selectedBranch === 'tondiarpet' ? '#ffffff' : '#334155',
+                      border: 'none',
+                      padding: '5px 12px',
+                      borderRadius: '999px',
+                      fontSize: '0.78rem',
+                      fontWeight: 800,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      boxShadow: selectedBranch === 'tondiarpet' ? '0 2px 8px rgba(0, 135, 90, 0.3)' : 'none'
+                    }}
+                  >
+                    <span style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: selectedBranch === 'tondiarpet' ? '#ffffff' : '#94a3b8'
+                    }} />
+                    <span>{lang === 'ta' ? 'தண்டையார்பேட்டை' : 'Tondiarpet'}</span>
+                  </button>
                 </div>
               </div>
 
