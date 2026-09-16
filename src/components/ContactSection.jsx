@@ -50,7 +50,7 @@ export default function ContactSection({ lang = 'ta' }) {
   };
 
   return (
-    <section id="contact" style={{
+    <section id="contact" className="contact-section-wrapper" style={{
       background: 'var(--section-alt-bg)',
       padding: '55px 0 60px 0',
       borderTop: '1px solid var(--section-alt-border)',
@@ -92,8 +92,8 @@ export default function ContactSection({ lang = 'ta' }) {
           }} className="contact-split-grid">
             
             {/* Left Info Column */}
-            <div>
-              <div style={{ marginBottom: '6px' }}>
+            <div className="contact-left-col">
+              <div className="contact-script-badge" style={{ marginBottom: '6px' }}>
                 <span className="font-script" style={{
                   fontSize: '1.9rem',
                   fontWeight: 800,
@@ -105,8 +105,8 @@ export default function ContactSection({ lang = 'ta' }) {
                 </span>
               </div>
 
-              <h2 style={{
-                fontSize: 'clamp(2rem, 3.4vw, 2.75rem)',
+              <h2 className="contact-main-heading" style={{
+                fontSize: 'clamp(1.8rem, 3.4vw, 2.75rem)',
                 fontWeight: 900,
                 fontFamily: 'var(--font-heading)',
                 color: '#ffffff',
@@ -125,7 +125,7 @@ export default function ContactSection({ lang = 'ta' }) {
                 )}
               </h2>
 
-              <p style={{
+              <p className="contact-subtext" style={{
                 fontSize: '0.96rem',
                 color: '#e0f2fe',
                 lineHeight: 1.6,
@@ -138,11 +138,12 @@ export default function ContactSection({ lang = 'ta' }) {
               </p>
 
               {/* Contact Information List */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '28px' }}>
+              <div className="contact-info-list" style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '28px' }}>
                 
                 {/* Phone */}
                 <a
                   href={`tel:${tuitionData.phones[0]}`}
+                  className="contact-info-card"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -159,7 +160,7 @@ export default function ContactSection({ lang = 'ta' }) {
                   onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.18)'}
                   onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
                 >
-                  <div style={{
+                  <div className="contact-icon-circle" style={{
                     width: '38px',
                     height: '38px',
                     borderRadius: '50%',
@@ -173,10 +174,10 @@ export default function ContactSection({ lang = 'ta' }) {
                     <Phone size={18} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.74rem', color: '#bae6fd', fontWeight: 700 }}>
+                    <div className="contact-card-sub" style={{ fontSize: '0.74rem', color: '#bae6fd', fontWeight: 700 }}>
                       {lang === 'ta' ? 'அழைப்பு & ஆலோசனை' : 'Direct Call & Counselling'}
                     </div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 900 }}>
+                    <div className="contact-card-val" style={{ fontSize: '1.05rem', fontWeight: 900 }}>
                       {tuitionData.displayPhones.join(' / ')}
                     </div>
                   </div>
@@ -187,6 +188,7 @@ export default function ContactSection({ lang = 'ta' }) {
                   href={`https://wa.me/${tuitionData.whatsappNumber}?text=Hi%20JP%20Goodwill%20Tuition%20Centre,%20I%20want%20to%20know%20about%20admissions.`}
                   target="_blank"
                   rel="noreferrer"
+                  className="contact-info-card"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -203,7 +205,7 @@ export default function ContactSection({ lang = 'ta' }) {
                   onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.18)'}
                   onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
                 >
-                  <div style={{
+                  <div className="contact-icon-circle" style={{
                     width: '38px',
                     height: '38px',
                     borderRadius: '50%',
@@ -217,17 +219,17 @@ export default function ContactSection({ lang = 'ta' }) {
                     <WhatsAppIcon size={20} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.74rem', color: '#bae6fd', fontWeight: 700 }}>
+                    <div className="contact-card-sub" style={{ fontSize: '0.74rem', color: '#bae6fd', fontWeight: 700 }}>
                       {lang === 'ta' ? 'உடனடி வாட்ஸ்அப் உதவி' : 'Instant WhatsApp Help'}
                     </div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 900 }}>
+                    <div className="contact-card-val" style={{ fontSize: '1.05rem', fontWeight: 900 }}>
                       {tuitionData.displayPhones[0]}
                     </div>
                   </div>
                 </a>
 
                 {/* Campuses Location */}
-                <div style={{
+                <div className="contact-info-card contact-campus-card" style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '14px',
@@ -236,7 +238,7 @@ export default function ContactSection({ lang = 'ta' }) {
                   borderRadius: '14px',
                   border: '1px solid rgba(255, 255, 255, 0.15)'
                 }}>
-                  <div style={{
+                  <div className="contact-icon-circle" style={{
                     width: '38px',
                     height: '38px',
                     borderRadius: '50%',
@@ -250,10 +252,10 @@ export default function ContactSection({ lang = 'ta' }) {
                     <MapPin size={18} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.74rem', color: '#bae6fd', fontWeight: 700 }}>
+                    <div className="contact-card-sub" style={{ fontSize: '0.74rem', color: '#bae6fd', fontWeight: 700 }}>
                       {lang === 'ta' ? 'கிளைகள் அமைவிடம்' : 'Campuses'}
                     </div>
-                    <div style={{ fontSize: '0.96rem', fontWeight: 800 }}>
+                    <div className="contact-card-val contact-campus-val" style={{ fontSize: '0.96rem', fontWeight: 800 }}>
                       {lang === 'ta' ? 'கொருக்குப்பேட்டை & தண்டையார்பேட்டை (VOC நகர்), சென்னை' : 'Korukkupet & Tondiarpet (VOC Nagar), Chennai'}
                     </div>
                   </div>
@@ -271,7 +273,7 @@ export default function ContactSection({ lang = 'ta' }) {
               boxShadow: '0 10px 30px rgba(0,0,0,0.15)'
             }} className="contact-form-container">
               
-              <h3 style={{
+              <h3 className="contact-form-heading" style={{
                 fontSize: '1.25rem',
                 fontWeight: 900,
                 color: '#093f7c',
@@ -281,7 +283,7 @@ export default function ContactSection({ lang = 'ta' }) {
                 {lang === 'ta' ? 'சேர்க்கை முன்பதிவு படிவம்' : 'Quick Admission Enquiry'}
               </h3>
               
-              <p style={{ fontSize: '0.84rem', color: '#64748b', marginBottom: '18px' }}>
+              <p className="contact-form-subtext" style={{ fontSize: '0.84rem', color: '#64748b', marginBottom: '18px' }}>
                 {lang === 'ta' ? 'உங்கள் விவரங்களை நிரப்பி நேரடி வாட்ஸ்அப் மூலம் உடனடியாக அனுப்பவும்.' : 'Submit your details to connect directly with our admissions desk.'}
               </p>
 
@@ -307,66 +309,71 @@ export default function ContactSection({ lang = 'ta' }) {
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSend} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  {/* Name */}
-                  <div>
-                    <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
-                      {lang === 'ta' ? 'மாணவர் / பெற்றோர் பெயர் *' : 'Student / Parent Name *'}
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder={lang === 'ta' ? 'பெயரை உள்ளிடவும்' : 'Enter your name'}
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      style={{
-                        width: '100%',
-                        padding: '11px 14px',
-                        borderRadius: '10px',
-                        border: '1.5px solid #cbd5e1',
-                        fontSize: '0.9rem',
-                        fontFamily: 'inherit',
-                        outline: 'none',
-                        boxSizing: 'border-box'
-                      }}
-                    />
-                  </div>
+                <form onSubmit={handleSend} className="contact-form-fields" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  
+                  {/* Name & Phone in 2-column or 1-column */}
+                  <div className="contact-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                    <div>
+                      <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
+                        {lang === 'ta' ? 'பெயர் *' : 'Name *'}
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder={lang === 'ta' ? 'பெயர்' : 'Your name'}
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="contact-input-field"
+                        style={{
+                          width: '100%',
+                          padding: '11px 14px',
+                          borderRadius: '10px',
+                          border: '1.5px solid #cbd5e1',
+                          fontSize: '0.9rem',
+                          fontFamily: 'inherit',
+                          outline: 'none',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
 
-                  {/* Phone */}
-                  <div>
-                    <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
-                      {lang === 'ta' ? 'மொபைல் எண் *' : 'Phone Number *'}
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="80155 73223"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      style={{
-                        width: '100%',
-                        padding: '11px 14px',
-                        borderRadius: '10px',
-                        border: '1.5px solid #cbd5e1',
-                        fontSize: '0.9rem',
-                        fontFamily: 'inherit',
-                        outline: 'none',
-                        boxSizing: 'border-box'
-                      }}
-                    />
+                    <div>
+                      <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
+                        {lang === 'ta' ? 'மொபைல் எண் *' : 'Phone *'}
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="80155 73223"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="contact-input-field"
+                        style={{
+                          width: '100%',
+                          padding: '11px 14px',
+                          borderRadius: '10px',
+                          border: '1.5px solid #cbd5e1',
+                          fontSize: '0.9rem',
+                          fontFamily: 'inherit',
+                          outline: 'none',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
                   </div>
 
                   {/* Course & Branch */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                  <div className="contact-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                     <div>
                       <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
                         {lang === 'ta' ? 'வகுப்பு / பாடம்' : 'Class / Course'}
                       </label>
                       <input
                         type="text"
-                        placeholder={lang === 'ta' ? 'எ.கா. 10th / 12th Maths' : 'e.g. 10th Maths'}
+                        placeholder={lang === 'ta' ? '10th / 12th Maths' : 'e.g. 10th Maths'}
                         value={formData.course}
                         onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+                        className="contact-input-field"
                         style={{
                           width: '100%',
                           padding: '11px 12px',
@@ -387,6 +394,7 @@ export default function ContactSection({ lang = 'ta' }) {
                       <select
                         value={formData.branch}
                         onChange={(e) => setFormData({ ...formData, branch: e.target.value })}
+                        className="contact-input-field"
                         style={{
                           width: '100%',
                           padding: '11px 12px',
@@ -406,7 +414,7 @@ export default function ContactSection({ lang = 'ta' }) {
                   </div>
 
                   {/* Message */}
-                  <div>
+                  <div className="contact-message-group">
                     <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
                       {lang === 'ta' ? 'உங்கள் கருத்து / கேள்வி (விருப்பம்)' : 'Message (Optional)'}
                     </label>
@@ -415,6 +423,7 @@ export default function ContactSection({ lang = 'ta' }) {
                       placeholder={lang === 'ta' ? 'விவரங்களை உள்ளிடவும்...' : 'Type your message...'}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="contact-input-field contact-textarea-field"
                       style={{
                         width: '100%',
                         padding: '10px 14px',
@@ -432,6 +441,7 @@ export default function ContactSection({ lang = 'ta' }) {
                   {/* Submit via WhatsApp */}
                   <button
                     type="submit"
+                    className="contact-submit-btn"
                     style={{
                       width: '100%',
                       background: '#00875a',
@@ -473,10 +483,89 @@ export default function ContactSection({ lang = 'ta' }) {
             grid-template-columns: 1.1fr 0.9fr !important;
           }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 860px) {
+          .contact-section-wrapper {
+            padding: 24px 0 28px 0 !important;
+          }
           .contact-main-card {
-            padding: 30px 20px !important;
-            border-radius: 20px !important;
+            padding: 20px 16px !important;
+            border-radius: 18px !important;
+          }
+          .contact-split-grid {
+            gap: 16px !important;
+          }
+          .contact-script-badge span {
+            font-size: 1.35rem !important;
+          }
+          .contact-main-heading {
+            font-size: 1.45rem !important;
+            margin: 0 0 6px 0 !important;
+          }
+          .contact-subtext {
+            font-size: 0.82rem !important;
+            line-height: 1.45 !important;
+            margin-bottom: 12px !important;
+          }
+          .contact-info-list {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 8px !important;
+            margin-bottom: 14px !important;
+          }
+          .contact-info-card {
+            padding: 8px 10px !important;
+            gap: 8px !important;
+            border-radius: 10px !important;
+          }
+          .contact-icon-circle {
+            width: 30px !important;
+            height: 30px !important;
+          }
+          .contact-icon-circle svg {
+            width: 14px !important;
+            height: 14px !important;
+          }
+          .contact-card-sub {
+            font-size: 0.64rem !important;
+          }
+          .contact-card-val {
+            font-size: 0.78rem !important;
+          }
+          .contact-campus-card {
+            grid-column: span 2 !important;
+            padding: 6px 10px !important;
+          }
+          .contact-campus-val {
+            font-size: 0.76rem !important;
+          }
+          .contact-form-container {
+            padding: 16px 14px !important;
+            border-radius: 14px !important;
+          }
+          .contact-form-heading {
+            font-size: 1.1rem !important;
+            margin-bottom: 3px !important;
+          }
+          .contact-form-subtext {
+            font-size: 0.76rem !important;
+            margin-bottom: 10px !important;
+            line-height: 1.3 !important;
+          }
+          .contact-form-fields {
+            gap: 8px !important;
+          }
+          .contact-input-field {
+            padding: 8px 10px !important;
+            font-size: 0.82rem !important;
+            border-radius: 8px !important;
+          }
+          .contact-textarea-field {
+            height: 38px !important;
+            padding: 6px 10px !important;
+          }
+          .contact-submit-btn {
+            padding: 10px !important;
+            font-size: 0.88rem !important;
           }
         }
       `}</style>

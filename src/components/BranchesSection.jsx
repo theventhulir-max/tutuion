@@ -9,7 +9,7 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
       id: 'korukkupet',
       titleEn: 'Korukkupet Campus (Branch 1)',
       titleTa: 'கொருக்குப்பேட்டை கிளை',
-      areaTagEn: 'Korukkupet • Chennai 600021',
+      areaTagEn: 'Korukkupet • Chennai 21',
       areaTagTa: 'கொருக்குப்பேட்டை • சென்னை 21',
       addressEn: 'No: 12, Driver Colony, Kathivakkam High Road (K.H. Road), Korukkupet, Chennai - 600 021.',
       addressTa: 'எண்: 12, டிரைவர் காலனி தெரு, கத்திவாக்கம் ஹை ரோடு, கொருக்குப்பேட்டை, சென்னை - 600 021.',
@@ -28,7 +28,7 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
       id: 'tondiarpet',
       titleEn: 'Tondiarpet Campus (Branch 2)',
       titleTa: 'தண்டையார்பேட்டை கிளை',
-      areaTagEn: 'Tondiarpet • Chennai 600081',
+      areaTagEn: 'Tondiarpet • Chennai 81',
       areaTagTa: 'VOC நகர் • சென்னை 81',
       addressEn: 'No. 86/40, 40th, 8th Cross Street, VOC Nagar, Tondiarpet, Chennai - 600 081.',
       addressTa: 'எண்: 86/40, 40வது தெரு, 8வது குறுக்கு தெரு, வ.உ.சி நகர், தண்டையார்பேட்டை, சென்னை - 600 081.',
@@ -217,45 +217,55 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                     pointerEvents: 'none'
                   }} />
 
-                  {/* Top Left: Frosted Location Tag */}
-                  <div className="branch-loc-badge" style={{
+                  {/* Top Badges Bar with Flexbox (Prevents Overlap) */}
+                  <div className="branch-badges-header" style={{
                     position: 'absolute',
                     top: '12px',
                     left: '12px',
-                    background: 'rgba(255, 255, 255, 0.96)',
-                    backdropFilter: 'blur(10px)',
-                    padding: '5px 12px',
-                    borderRadius: '999px',
-                    fontSize: '0.78rem',
-                    fontWeight: 800,
-                    color: 'var(--primary-navy)',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '5px',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
-                  }}>
-                    <MapPin size={13} style={{ color: 'var(--accent-green)' }} />
-                    <span>{lang === 'ta' ? b.areaTagTa : b.areaTagEn}</span>
-                  </div>
-
-                  {/* Top Right: Status Badge */}
-                  <div className="branch-status-badge" style={{
-                    position: 'absolute',
-                    top: '12px',
                     right: '12px',
-                    background: 'var(--accent-green)',
-                    color: '#ffffff',
-                    padding: '5px 11px',
-                    borderRadius: '999px',
-                    fontSize: '0.72rem',
-                    fontWeight: 800,
-                    display: 'inline-flex',
+                    display: 'flex',
                     alignItems: 'center',
-                    gap: '5px',
-                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
+                    justifyContent: 'space-between',
+                    gap: '8px',
+                    zIndex: 3
                   }}>
-                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#86efac', display: 'inline-block' }} />
-                    <span>{lang === 'ta' ? 'சேர்க்கை நடக்கிறது' : 'Admissions Open'}</span>
+                    {/* Frosted Location Tag */}
+                    <div className="branch-loc-badge" style={{
+                      background: 'rgba(255, 255, 255, 0.96)',
+                      backdropFilter: 'blur(10px)',
+                      padding: '5px 12px',
+                      borderRadius: '999px',
+                      fontSize: '0.78rem',
+                      fontWeight: 800,
+                      color: 'var(--primary-navy)',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      <MapPin size={13} style={{ color: 'var(--accent-green)', flexShrink: 0 }} />
+                      <span>{lang === 'ta' ? b.areaTagTa : b.areaTagEn}</span>
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className="branch-status-badge" style={{
+                      background: 'var(--accent-green)',
+                      color: '#ffffff',
+                      padding: '5px 11px',
+                      borderRadius: '999px',
+                      fontSize: '0.72rem',
+                      fontWeight: 800,
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0
+                    }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#86efac', display: 'inline-block', flexShrink: 0 }} />
+                      <span>{lang === 'ta' ? 'சேர்க்கை நடக்கிறது' : 'Admissions Open'}</span>
+                    </div>
                   </div>
 
                   {/* Bottom Image Title Overlay */}
@@ -618,6 +628,26 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
             width: 38px !important;
             height: 36px !important;
           }
+          .branch-badges-header {
+            top: 8px !important;
+            left: 8px !important;
+            right: 8px !important;
+            gap: 6px !important;
+          }
+          .branch-loc-badge {
+            padding: 4px 8px !important;
+            font-size: 0.68rem !important;
+            gap: 4px !important;
+          }
+          .branch-loc-badge svg {
+            width: 11px !important;
+            height: 11px !important;
+          }
+          .branch-status-badge {
+            padding: 4px 8px !important;
+            font-size: 0.66rem !important;
+            gap: 4px !important;
+          }
           .branch-enquiry-banner {
             padding: 14px 12px !important;
             border-radius: 14px !important;
@@ -634,6 +664,22 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
             width: 100% !important;
             justify-content: center !important;
             padding: 10px 14px !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .branch-badges-header {
+            top: 6px !important;
+            left: 6px !important;
+            right: 6px !important;
+            gap: 4px !important;
+          }
+          .branch-loc-badge {
+            padding: 3px 6px !important;
+            font-size: 0.62rem !important;
+          }
+          .branch-status-badge {
+            padding: 3px 6px !important;
+            font-size: 0.60rem !important;
           }
         }
       `}</style>

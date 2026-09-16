@@ -56,49 +56,49 @@ function App() {
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 2. About Us Section */}
+        {/* 2. Contact Us Section (Moved to Second Position) */}
+        <ContactSection
+          lang={lang}
+        />
+
+        {/* 3. About Us Section */}
         <AboutSection
           lang={lang}
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 3. Key Highlights Section (Dedicated section) */}
+        {/* 4. Key Highlights Section (Dedicated section) */}
         <HighlightsSection
           lang={lang}
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 4. Our Teachers / PG Faculty Section (Dedicated section) */}
+        {/* 5. Our Teachers / PG Faculty Section (Dedicated section) */}
         <TeachersSection
           lang={lang}
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 5. Our Courses */}
+        {/* 6. Our Courses */}
         <CoursesSection
           lang={lang}
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 6. Why Choose Us */}
+        {/* 7. Why Choose Us */}
         <WhyChooseSection
           lang={lang}
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 7. Our Branches */}
+        {/* 8. Our Branches */}
         <BranchesSection
           lang={lang}
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 8. Our Photo Gallery */}
+        {/* 9. Our Photo Gallery */}
         <GallerySection
-          lang={lang}
-        />
-
-        {/* 9. Get in Touch / Contact Section */}
-        <ContactSection
           lang={lang}
         />
       </main>
