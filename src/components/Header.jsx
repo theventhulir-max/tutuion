@@ -10,6 +10,7 @@ export default function Header({ lang, setLang, theme = 'royal-blue', setTheme, 
   const navLinks = [
     { name: 'Home', href: '#home', label: { en: 'Home', ta: 'முகப்பு' } },
     { name: 'About', href: '#about', label: { en: 'About Us', ta: 'அறிமுகம்' } },
+    { name: 'Teachers', href: '#teachers', label: { en: 'Teachers', ta: 'ஆசிரியர்கள்' } },
     { name: 'Highlights', href: '#highlights', label: { en: 'Highlights', ta: 'சிறப்புகள்' } },
     { name: 'Courses', href: '#courses', label: { en: 'Courses', ta: 'பாடங்கள்' } },
     { name: 'Branches', href: '#branches', label: { en: 'Branches', ta: 'கிளைகள்' } },

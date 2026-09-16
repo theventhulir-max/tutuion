@@ -67,14 +67,14 @@ function App() {
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 4. Key Highlights Section (Dedicated section) */}
-        <HighlightsSection
+        {/* 4. Our Teachers / PG Faculty Section */}
+        <TeachersSection
           lang={lang}
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
 
-        {/* 5. Our Teachers / PG Faculty Section (Dedicated section) */}
-        <TeachersSection
+        {/* 5. Key Highlights Section */}
+        <HighlightsSection
           lang={lang}
           onOpenAdmission={() => setIsAdmissionOpen(true)}
         />
