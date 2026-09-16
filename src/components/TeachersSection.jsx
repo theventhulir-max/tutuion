@@ -195,10 +195,10 @@ export default function TeachersSection({ lang = 'ta', onOpenAdmission }) {
 
       <style>{`
         .teachers-section-wrapper {
-          background: #ffffff;
+          background: var(--section-alt-bg);
           padding: 80px 0 90px 0;
-          border-top: 1px solid #e2e8f0;
-          border-bottom: 1px solid #e2e8f0;
+          border-top: 1px solid var(--section-alt-border);
+          border-bottom: 1px solid var(--section-alt-border);
           position: relative;
           overflow: hidden;
         }

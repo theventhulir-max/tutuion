@@ -67,10 +67,10 @@ export default function HighlightsSection({ lang = 'ta', onOpenAdmission }) {
 
   return (
     <section id="highlights" className="highlights-section-wrapper" style={{
-      background: 'var(--section-alt-bg)',
+      background: '#ffffff',
       padding: '85px 0 95px 0',
-      borderTop: '1px solid var(--section-alt-border)',
-      borderBottom: '1px solid var(--section-alt-border)',
+      borderTop: '1px solid #e2e8f0',
+      borderBottom: '1px solid #e2e8f0',
       position: 'relative'
     }}>
       <div className="container">
