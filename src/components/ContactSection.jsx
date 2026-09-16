@@ -109,7 +109,7 @@ export default function ContactSection({ lang = 'ta' }) {
           }} className="contact-split-grid">
             
             {/* Left Info Column */}
-            <div className="contact-left-col">
+            <div className="contact-left-col reveal-on-scroll reveal-left">
               <div className="contact-script-badge" style={{ marginBottom: '6px' }}>
                 <span className="font-script" style={{
                   fontSize: '1.9rem',
@@ -288,7 +288,7 @@ export default function ContactSection({ lang = 'ta' }) {
               padding: '30px 26px',
               color: '#0f172a',
               boxShadow: '0 10px 30px rgba(0,0,0,0.15)'
-            }} className="contact-form-container">
+            }} className="contact-form-container reveal-on-scroll reveal-right">
               
               <h3 className="contact-form-heading" style={{
                 fontSize: '1.25rem',

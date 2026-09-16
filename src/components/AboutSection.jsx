@@ -228,7 +228,7 @@ export default function AboutSection({ lang = 'ta', onOpenAdmission }) {
           </div>
 
           {/* Right Column: Classroom Photo with Floating Badges */}
-          <div style={{ position: 'relative' }} className="about-image-wrapper">
+          <div style={{ position: 'relative' }} className="about-image-wrapper reveal-on-scroll reveal-right">
             
             {/* Ambient Background Glow */}
             <div style={{
@@ -352,7 +352,7 @@ export default function AboutSection({ lang = 'ta', onOpenAdmission }) {
         </div>
 
         {/* Bottom Statistics Strip */}
-        <div style={{
+        <div className="reveal-on-scroll reveal-scale" style={{
           background: '#ffffff',
           borderRadius: '18px',
           border: '1.5px solid #d0e7fb',

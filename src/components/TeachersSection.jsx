@@ -87,7 +87,7 @@ export default function TeachersSection({ lang = 'ta', onOpenAdmission }) {
       <div className="container">
         
         {/* Section Header */}
-        <div className="teachers-header-block">
+        <div className="teachers-header-block reveal-on-scroll">
           <div className="script-title-wrap">
             <span className="font-script teachers-script-badge">
               <span className="relative-z">
@@ -117,7 +117,7 @@ export default function TeachersSection({ lang = 'ta', onOpenAdmission }) {
           {teachers.map((t, idx) => (
             <div
               key={idx}
-              className={`faculty-profile-card hover-lift ${t.isLead ? 'is-lead-director-card' : ''}`}
+              className={`faculty-profile-card hover-lift reveal-on-scroll stagger-${idx + 1} ${t.isLead ? 'is-lead-director-card' : ''}`}
             >
               {/* Card Top Row: Avatar on Left + Details on Right */}
               <div className="faculty-card-top-row">

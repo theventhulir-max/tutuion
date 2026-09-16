@@ -111,7 +111,7 @@ export default function GallerySection({ lang = 'ta' }) {
       <div className="container">
         
         {/* Section Header */}
-        <div className="gallery-section-header" style={{
+        <div className="gallery-section-header reveal-on-scroll" style={{
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-between',
@@ -184,7 +184,7 @@ export default function GallerySection({ lang = 'ta' }) {
         </div>
 
         {/* Category Filter Pills (Horizontal Scrollable on Mobile) */}
-        <div className="gallery-filter-bar" style={{
+        <div className="gallery-filter-bar reveal-on-scroll" style={{
           display: 'flex',
           flexWrap: 'wrap',
           gap: '10px',
@@ -201,11 +201,14 @@ export default function GallerySection({ lang = 'ta' }) {
                   background: isSelected ? 'var(--primary-navy)' : '#ffffff',
                   color: isSelected ? '#ffffff' : '#334155',
                   border: isSelected ? '1.5px solid var(--primary-navy)' : '1.5px solid #e2e8f0',
-                  padding: '9px 20px',
+                  padding: '7px 16px',
                   borderRadius: '999px',
-                  fontSize: '0.88rem',
+                  fontSize: '0.84rem',
                   fontWeight: 800,
                   cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
                   transition: 'all 0.2s ease',
                   boxShadow: isSelected ? '0 4px 12px rgba(9, 63, 124, 0.2)' : '0 2px 6px rgba(0,0,0,0.02)',
                   whiteSpace: 'nowrap',
@@ -240,7 +243,7 @@ export default function GallerySection({ lang = 'ta' }) {
                 aspectRatio: '16/11',
                 transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
-              className="gallery-card-hover"
+              className={`gallery-card-hover reveal-on-scroll stagger-${(idx % 6) + 1}`}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-5px)';
                 e.currentTarget.style.borderColor = 'var(--primary-blue)';

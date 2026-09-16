@@ -151,7 +151,7 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
           gap: '28px',
           marginBottom: '38px'
         }} className="branches-main-grid">
-          {branches.map((b) => (
+          {branches.map((b, bIdx) => (
             <div
               key={b.id}
               style={{
@@ -166,7 +166,7 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
                 justifyContent: 'space-between',
                 position: 'relative'
               }}
-              className="branch-card-item"
+              className={`branch-card-item reveal-on-scroll stagger-${bIdx + 1}`}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-5px)';
                 e.currentTarget.style.borderColor = 'var(--primary-blue)';
@@ -492,7 +492,7 @@ export default function BranchesSection({ lang = 'ta', onOpenAdmission }) {
         </div>
 
         {/* View All Branches / Quick Admission Inquiry Strip */}
-        <div className="branch-enquiry-banner" style={{
+        <div className="branch-enquiry-banner reveal-on-scroll reveal-scale" style={{
           background: '#ffffff',
           borderRadius: '20px',
           border: '1.5px solid #e2e8f0',

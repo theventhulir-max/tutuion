@@ -62,7 +62,7 @@ export default function Footer({ lang = 'ta', onOpenAdmission }) {
           }} className="footer-top-grid">
             
             {/* Left Side: Brand Logo, Tagline, 2 Campus Cards & 3 CTAs */}
-            <div>
+            <div className="reveal-on-scroll reveal-left">
               {/* Logo */}
               <div style={{ marginBottom: '14px' }}>
                 <Logo size={46} showText={true} isWhite={false} />
@@ -224,7 +224,7 @@ export default function Footer({ lang = 'ta', onOpenAdmission }) {
             </div>
 
             {/* Right Side: Map Header, Switcher Tabs & Embedded Google Map Card */}
-            <div>
+            <div className="reveal-on-scroll reveal-right">
               {/* Header & Interactive 2-Location Switcher Tabs */}
               <div style={{
                 display: 'flex',
@@ -390,7 +390,7 @@ export default function Footer({ lang = 'ta', onOpenAdmission }) {
             gridTemplateColumns: '1.2fr 0.8fr 1.15fr 0.85fr',
             gap: '36px',
             marginBottom: '36px'
-          }} className="footer-bottom-columns">
+          }} className="footer-bottom-columns reveal-on-scroll reveal-scale">
             
             {/* Column 1: Brand & Motto */}
             <div>
