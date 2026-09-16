@@ -8,6 +8,8 @@ export function useScrollReveal() {
       return;
     }
 
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
     const observerCallback = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -17,10 +19,11 @@ export function useScrollReveal() {
       });
     };
 
+    // Trigger only when element is at least 100px (or 55px on mobile) inside the viewport
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -35px 0px',
-      threshold: 0.08,
+      rootMargin: isMobile ? '0px 0px -55px 0px' : '0px 0px -115px 0px',
+      threshold: isMobile ? 0.1 : 0.15,
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -29,9 +32,9 @@ export function useScrollReveal() {
       const elements = document.querySelectorAll('.reveal-on-scroll:not(.is-visible)');
       elements.forEach((el) => {
         const rect = el.getBoundingClientRect();
-        // If element is already in initial view, reveal it smoothly
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          setTimeout(() => el.classList.add('is-visible'), 60);
+        // If element is already in top part of initial viewport on page load
+        if (rect.top < window.innerHeight * 0.65 && rect.bottom > 0) {
+          setTimeout(() => el.classList.add('is-visible'), 120);
         } else {
           observer.observe(el);
         }
