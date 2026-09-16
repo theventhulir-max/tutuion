@@ -7,14 +7,31 @@ export default function ContactSection({ lang = 'ta' }) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    course: '',
+    course: '10th Maths & Science',
+    customCourse: '',
     branch: 'Korukkupet',
     message: ''
   });
   const [sent, setSent] = useState(false);
 
+  const courseOptions = [
+    { value: '10th Maths & Science', labelTa: '10ம் வகுப்பு கணிதம் & அறிவியல்', labelEn: '10th Maths & Science' },
+    { value: '12th Maths (Bio / Comp)', labelTa: '12ம் வகுப்பு கணிதம் (General / Bio)', labelEn: '12th Maths (Bio / Comp)' },
+    { value: '12th Business Maths & Accounts', labelTa: '12ம் வணிக கணிதம் & கணக்குப்பதிவியல்', labelEn: '12th Business Maths & Accounts' },
+    { value: '11th / 12th Physics & Chemistry', labelTa: '11 / 12ம் இயற்பியல் & வேதியியல்', labelEn: '11th / 12th Physics & Chemistry' },
+    { value: '9th & 10th Board Exam Batch', labelTa: '9 & 10ம் பொதுத்தேர்வு சிறப்பு பிரிவு', labelEn: '9th & 10th Board Exam Batch' },
+    { value: '6th to 8th (All Subjects)', labelTa: '6 முதல் 8ம் வகுப்பு (அனைத்து பாடங்கள்)', labelEn: '6th to 8th (All Subjects)' },
+    { value: 'College / Engineering Maths (M1, M2)', labelTa: 'கல்லூரி / பொறியியல் கணிதம் (M1, M2)', labelEn: 'College / Engineering Maths (M1, M2)' },
+    { value: 'Home Tuition (Doorstep)', labelTa: 'வீட்டுக்கே வந்து கற்பிக்கும் ஹோம் டியூஷன்', labelEn: 'Home Tuition (Doorstep Tutoring)' },
+    { value: 'Other', labelTa: 'மற்றவை (Other - கீழே உள்ளிடவும்)', labelEn: 'Other (Type Custom Subject)' }
+  ];
+
   const handleSend = (e) => {
     e.preventDefault();
+    const effectiveCourse = formData.course === 'Other' 
+      ? (formData.customCourse.trim() || 'Other / Custom Subject') 
+      : formData.course;
+
     // 1. Send Email Notification directly to mentorixacademy.ma@gmail.com
     try {
       fetch(`https://formsubmit.co/ajax/${tuitionData.email}`, {
@@ -28,7 +45,7 @@ export default function ContactSection({ lang = 'ta' }) {
           'Contact Name': formData.name,
           'Phone Number': formData.phone,
           'Branch Preference': formData.branch,
-          'Course / Subject': formData.course || 'Not Specified',
+          'Course / Subject': effectiveCourse,
           'Message / Query': formData.message || 'General enquiry',
           '_template': 'table'
         })
@@ -42,7 +59,7 @@ export default function ContactSection({ lang = 'ta' }) {
       `*Name:* ${formData.name}\n` +
       `*Phone:* ${formData.phone}\n` +
       `*Branch:* ${formData.branch}\n` +
-      `*Course:* ${formData.course || 'Not Specified'}\n` +
+      `*Course / Class:* ${effectiveCourse}\n` +
       `*Message:* ${formData.message || 'Admission enquiry'}`;
 
     window.open(`https://wa.me/${tuitionData.whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
@@ -311,7 +328,7 @@ export default function ContactSection({ lang = 'ta' }) {
               ) : (
                 <form onSubmit={handleSend} className="contact-form-fields" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   
-                  {/* Name & Phone in 2-column or 1-column */}
+                  {/* Name & Phone in 2-column */}
                   <div className="contact-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                     <div>
                       <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
@@ -362,34 +379,40 @@ export default function ContactSection({ lang = 'ta' }) {
                     </div>
                   </div>
 
-                  {/* Course & Branch */}
+                  {/* Course & Branch Dropdowns */}
                   <div className="contact-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                     <div>
                       <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
-                        {lang === 'ta' ? 'வகுப்பு / பாடம்' : 'Class / Course'}
+                        {lang === 'ta' ? 'வகுப்பு / பாடம் *' : 'Class / Course *'}
                       </label>
-                      <input
-                        type="text"
-                        placeholder={lang === 'ta' ? '10th / 12th Maths' : 'e.g. 10th Maths'}
+                      <select
                         value={formData.course}
                         onChange={(e) => setFormData({ ...formData, course: e.target.value })}
                         className="contact-input-field"
                         style={{
                           width: '100%',
-                          padding: '11px 12px',
+                          padding: '11px 10px',
                           borderRadius: '10px',
                           border: '1.5px solid #cbd5e1',
-                          fontSize: '0.86rem',
+                          fontSize: '0.84rem',
                           fontFamily: 'inherit',
                           outline: 'none',
-                          boxSizing: 'border-box'
+                          boxSizing: 'border-box',
+                          background: '#ffffff',
+                          cursor: 'pointer'
                         }}
-                      />
+                      >
+                        {courseOptions.map((opt) => (
+                          <option key={opt.value} value={opt.value}>
+                            {lang === 'ta' ? opt.labelTa : opt.labelEn}
+                          </option>
+                        ))}
+                      </select>
                     </div>
 
                     <div>
                       <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#334155', display: 'block', marginBottom: '4px' }}>
-                        {lang === 'ta' ? 'விருப்பமான கிளை' : 'Branch'}
+                        {lang === 'ta' ? 'விருப்பமான கிளை *' : 'Branch *'}
                       </label>
                       <select
                         value={formData.branch}
@@ -397,21 +420,51 @@ export default function ContactSection({ lang = 'ta' }) {
                         className="contact-input-field"
                         style={{
                           width: '100%',
-                          padding: '11px 12px',
+                          padding: '11px 10px',
                           borderRadius: '10px',
                           border: '1.5px solid #cbd5e1',
+                          fontSize: '0.84rem',
+                          fontFamily: 'inherit',
+                          outline: 'none',
+                          boxSizing: 'border-box',
+                          background: '#ffffff',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        <option value="Korukkupet">{lang === 'ta' ? 'கொருக்குப்பேட்டை கிளை' : 'Korukkupet Branch'}</option>
+                        <option value="Tondiarpet">{lang === 'ta' ? 'தண்டையார்பேட்டை கிளை' : 'Tondiarpet Branch'}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* If 'Other' is selected, show dedicated custom course input */}
+                  {formData.course === 'Other' && (
+                    <div style={{ animation: 'fadeIn 0.25s ease' }}>
+                      <label style={{ fontSize: '0.78rem', fontWeight: 800, color: '#093f7c', display: 'block', marginBottom: '4px' }}>
+                        {lang === 'ta' ? 'உங்கள் வகுப்பு / பாடத்தை குறிப்பிடவும் *' : 'Specify Your Class / Subject *'}
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        autoFocus
+                        placeholder={lang === 'ta' ? 'எ.கா. 11th Computer Science / Diploma / NEET' : 'e.g. 11th Computer Science / Diploma / NEET'}
+                        value={formData.customCourse}
+                        onChange={(e) => setFormData({ ...formData, customCourse: e.target.value })}
+                        className="contact-input-field"
+                        style={{
+                          width: '100%',
+                          padding: '10px 12px',
+                          borderRadius: '10px',
+                          border: '1.5px solid #0056b3',
                           fontSize: '0.86rem',
                           fontFamily: 'inherit',
                           outline: 'none',
                           boxSizing: 'border-box',
-                          background: '#ffffff'
+                          background: '#eff6ff'
                         }}
-                      >
-                        <option value="Korukkupet">{lang === 'ta' ? 'கொருக்குப்பேட்டை' : 'Korukkupet'}</option>
-                        <option value="Tondiarpet">{lang === 'ta' ? 'தண்டையார்பேட்டை' : 'Tondiarpet'}</option>
-                      </select>
+                      />
                     </div>
-                  </div>
+                  )}
 
                   {/* Message */}
                   <div className="contact-message-group">

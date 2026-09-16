@@ -28,6 +28,7 @@ export default function AdmissionModal({ isOpen, onClose, lang = 'ta' }) {
     parentName: '',
     phone: '',
     studentClass: '10th Standard (SSLC / CBSE)',
+    customClass: '',
     subjectChoice: 'All Core Subjects',
     branch: 'korukkupet',
     learningMode: 'Center Regular Batch',
@@ -58,6 +59,10 @@ export default function AdmissionModal({ isOpen, onClose, lang = 'ta' }) {
         ? 'Tondiarpet (VOC Nagar)' 
         : 'Doorstep Home Tuition';
     
+    const effectiveClass = formData.studentClass === 'Other'
+      ? (formData.customClass.trim() || 'Other / Custom Class')
+      : formData.studentClass;
+    
     // 1. Send Email Alert directly to tuitionData.email (mentorixacademy.ma@gmail.com)
     try {
       fetch(`https://formsubmit.co/ajax/${tuitionData.email}`, {
@@ -67,11 +72,11 @@ export default function AdmissionModal({ isOpen, onClose, lang = 'ta' }) {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          _subject: `🎓 New Admission Enquiry: ${formData.studentName} (${formData.studentClass})`,
+          _subject: `🎓 New Admission Enquiry: ${formData.studentName} (${effectiveClass})`,
           'Student Name': formData.studentName,
           'Parent Name': formData.parentName || 'N/A',
           'Contact Phone': formData.phone,
-          'Class / Standard': formData.studentClass,
+          'Class / Standard': effectiveClass,
           'Branch Location': branchName,
           'Learning Mode / Facility': formData.learningMode,
           'Special Request / Notes': formData.notes || 'None',
@@ -87,7 +92,7 @@ export default function AdmissionModal({ isOpen, onClose, lang = 'ta' }) {
       `*Student Name:* ${formData.studentName}\n` +
       `*Parent Name:* ${formData.parentName || 'N/A'}\n` +
       `*Contact Phone:* ${formData.phone}\n` +
-      `*Class / Standard:* ${formData.studentClass}\n` +
+      `*Class / Standard:* ${effectiveClass}\n` +
       `*Branch:* ${branchName}\n` +
       `*Batch / Facility:* ${formData.learningMode}\n` +
       (formData.notes ? `*Special Request/Notes:* ${formData.notes}\n` : '') +
@@ -307,10 +312,34 @@ export default function AdmissionModal({ isOpen, onClose, lang = 'ta' }) {
                       <option value="Engineering Maths (Anna Univ)">Engineering Maths (Anna Univ M1/M2/M3)</option>
                       <option value="Diploma Mathematics">Diploma Mathematics (DOTE)</option>
                       <option value="Degree Maths & Statistics">Degree Maths & Statistics</option>
+                      <option value="Other">{isTa ? 'மற்றவை (Other - கீழே உள்ளிடவும்)' : 'Other (Type Custom Class/Course)'}</option>
                     </select>
                   </div>
                 </div>
               </div>
+
+              {/* If 'Other' selected, show custom class input */}
+              {formData.studentClass === 'Other' && (
+                <div className={`input-group ${focusedField === 'customClass' ? 'is-focused' : ''}`} style={{ marginBottom: '14px', animation: 'fadeIn 0.25s ease' }}>
+                  <label className="field-label">
+                    {isTa ? 'உங்கள் வகுப்பு / பாடத்தை குறிப்பிடவும்' : 'Specify Your Class / Subject'} <span className="req-star">*</span>
+                  </label>
+                  <div className="input-wrapper">
+                    <BookOpen size={17} className="input-icon" />
+                    <input
+                      type="text"
+                      required
+                      autoFocus
+                      placeholder={isTa ? 'எ.கா. 11th Computer Science, Diploma, NEET...' : 'e.g. 11th Computer Science, Diploma, NEET...'}
+                      value={formData.customClass}
+                      onFocus={() => setFocusedField('customClass')}
+                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) => setFormData({ ...formData, customClass: e.target.value })}
+                      className="form-input"
+                    />
+                  </div>
+                </div>
+              )}
 
               {/* Row 3: Branch & Facility/Mode */}
               <div className="form-grid-2">
